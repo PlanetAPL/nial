@@ -26,14 +26,7 @@
 #define WINDOWS
 #endif
 
-#ifdef WIN32
-#define SQL_API  __stdcall
-#elif defined(WINDOWS)
-#define SQL_API  EXPORT CALLBACK
-#else
 #define SQL_API
-#endif
-
 
 #ifndef RC_INVOKED
 
@@ -56,13 +49,7 @@ typedef unsigned long           ULONG;
 typedef unsigned short          USHORT;
 #endif  /* ODBCVER >= 0x0200 */
 typedef double                  SDOUBLE;
-#if defined(WIN32)
-typedef double            LDOUBLE; /* long double == short double in Win32 */
-#elif defined(WINDOWS)
-typedef long double             LDOUBLE;
-#else
 typedef double                  LDOUBLE;
-#endif
 typedef float                   SFLOAT;
 
 typedef void FAR *              PTR;
@@ -82,26 +69,12 @@ typedef UWORD                   SQLUSMALLINT;
 
 typedef void FAR *              SQLPOINTER;
 
-#if defined(WINDOWS) || defined(WIN32)
-typedef HENV			SQLHENV;
-typedef HDBC			SQLHDBC;
-typedef HSTMT			SQLHSTMT;
-#else
 typedef SQLINTEGER		SQLHENV;
 typedef SQLINTEGER		SQLHDBC;
 typedef SQLINTEGER		SQLHSTMT;
-#endif
-
 typedef SQLSMALLINT             SQLRETURN;
 
-#if defined(WINDOWS) || defined(WIN32) || defined(OS2)
-typedef HWND                    SQLHWND;
-#elif defined (UNIX)
 typedef Widget                  SQLHWND;
-#else
-/* placehold for future O/S GUI window handle definition */
-typedef SQLPOINTER              SQLHWND;        
-#endif
 
 /* transfer types for DATE, TIME, TIMESTAMP */
 typedef struct tagDATE_STRUCT

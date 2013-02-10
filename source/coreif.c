@@ -271,31 +271,6 @@ NC_Write(char *str, int numchars, int nlflag)
           str_copy[numchars] = '\0';
 
           /* now we must adjust the '\n's for the appropriate platform */
-#if defined(WINDOWS_SYS) && defined(WIN32GUI)
-          {
-            int         str_size = numchars + 3;
-            int         j = 0,
-                        i = 0;
-            int         c;
-
-            while (str[i] && i < numchars) {
-              if (str[i] == '\n') {
-                str_copy = (char *) realloc(str_copy, ++str_size);
-                if (!str_copy)
-                  exit_cover(NC_MEM_ERR_F);
-                str_copy[j++] = '\r';
-                str_copy[j] = '\n';
-              }
-              else
-                str_copy[j] = str[i];
-
-              i++;
-              j++;
-            }
-            str_copy[j] = '\0';
-          }
-#endif
-
           /* if requested print a newline */
           if (nlflag)
             strcat(str_copy, NLS);

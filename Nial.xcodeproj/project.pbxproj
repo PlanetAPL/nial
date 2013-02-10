@@ -104,8 +104,6 @@
 		E7A2F60016C75A6100215B90 /* mainlp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mainlp.h; sourceTree = "<group>"; };
 		E7A2F60316C75A6100215B90 /* messages.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = messages.c; sourceTree = "<group>"; };
 		E7A2F60416C75A6100215B90 /* messages.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = messages.h; sourceTree = "<group>"; };
-		E7A2F60616C75A6100215B90 /* nialdll.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = nialdll.h; sourceTree = "<group>"; };
-		E7A2F60716C75A6100215B90 /* odbcinst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = odbcinst.h; sourceTree = "<group>"; };
 		E7A2F60816C75A6100215B90 /* ops.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ops.h; sourceTree = "<group>"; };
 		E7A2F60A16C75A6100215B90 /* osxspecs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = osxspecs.h; sourceTree = "<group>"; };
 		E7A2F60B16C75A6100215B90 /* parse.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = parse.c; sourceTree = "<group>"; };
@@ -154,7 +152,6 @@
 		E7A2F65116C75A6100215B90 /* utils.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = utils.c; sourceTree = "<group>"; };
 		E7A2F65216C75A6100215B90 /* utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = utils.h; sourceTree = "<group>"; };
 		E7A2F65516C75A6100215B90 /* version.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = version.h; sourceTree = "<group>"; };
-		E7A2F65916C75A6100215B90 /* wininet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = wininet.h; sourceTree = "<group>"; };
 		E7A2F65A16C75A6100215B90 /* wsmanage.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = wsmanage.c; sourceTree = "<group>"; };
 		E7A2F65B16C75A6100215B90 /* wsmanage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = wsmanage.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -256,8 +253,6 @@
 				E7A2F60016C75A6100215B90 /* mainlp.h */,
 				E7A2F60316C75A6100215B90 /* messages.c */,
 				E7A2F60416C75A6100215B90 /* messages.h */,
-				E7A2F60616C75A6100215B90 /* nialdll.h */,
-				E7A2F60716C75A6100215B90 /* odbcinst.h */,
 				E7A2F60816C75A6100215B90 /* ops.h */,
 				E7A2F60A16C75A6100215B90 /* osxspecs.h */,
 				E7A2F60B16C75A6100215B90 /* parse.c */,
@@ -306,7 +301,6 @@
 				E7A2F65116C75A6100215B90 /* utils.c */,
 				E7A2F65216C75A6100215B90 /* utils.h */,
 				E7A2F65516C75A6100215B90 /* version.h */,
-				E7A2F65916C75A6100215B90 /* wininet.h */,
 				E7A2F65A16C75A6100215B90 /* wsmanage.c */,
 				E7A2F65B16C75A6100215B90 /* wsmanage.h */,
 			);
