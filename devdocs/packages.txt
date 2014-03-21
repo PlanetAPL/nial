@@ -1,0 +1,44 @@
+This document describes the package mechanism for building
+different versions of Q'Nial from the common source. The
+idea is that a set of package descriptions are kept in
+the pkgblder directory.
+
+Each *.pkg file corresponds to one version of the Q'Nial source
+with specific versions of the "basics.[ch]", "pkgswchs.h" and "defstbl.h"
+files. Running the "procpkg.ndf" program builds these files and
+places them in the directory above or at a requested destination. 
+Only one of the packages can be processed at a time. 
+
+The first line of the package file gives the package name. This must
+be unique. This switch must be set in the make file to build that
+version. Typically, this name is also used in version.h to select
+the "special" string used to describe the package in the banner.
+However, there can be several packages that define the same special 
+name if need be.
+
+The remaining lines of the package file give defines that are set for 
+the particular package. THese can be used to:
+  - select optional features in Q'Nial  (e.g. REGEXP)
+  - determine the class of Q'Nial system being built (e.g. CONSOLE)
+  - determine primitives named in "allprims.h" that are to be included
+    in the package.
+
+
+Each such line has 2 fields:
+	SWITCH defs_file 
+ A "-" is used to indicate the field is not needed. 
+
+Blank lines and those beginning with # are ignored.
+
+The package processor is run using
+       nial -defs procpkg
+in the pkgblder directory. The list of packages is displayed and the 
+user is prompted to pick one package to be processed. 
+
+The procpkg.ndf file should be used to process the appropriate
+package file each time you begin working on a version to be compiled.
+If you are modifiying an existing version, be sure that the generated
+files are appropriate. If in doubt redo the generation.
+
+The pkgblder directory must be a subdirectory of the "build" directory
+which holds the source files for Q'Nial.

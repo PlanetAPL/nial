@@ -1,0 +1,32 @@
+Installing the ISIJ font
+
+The console version of Q'Nial (nial.exe) uses the special boxing characters that are part of the 
+standard IBM character set to produce box diagrams with solid lines. The Q'Nial for Windows 
+programming environment uses substitute characters for boxing that make the lines appear as 
+dashed. 
+
+Q'Nial for Windows is delivered with a True Type font, originally developed by Iverson Software,
+that supports the special boxing characters used in the console version of Q'Nial. It is in the
+QNialV63 directory.
+
+Iverson Software has agreed to permit the Q'Nial Open Source project to distribute the file 
+isij.ttf that provides a Courier-like character set with the boxing characters. To install this font
+in Windows XP do the following steps:
+1. Click on the Fonts Icon in the Control Panel.
+2. Copy the isij.ttf file into the Fonts window.
+3. RIght click on the ISIJ Icon and select Properties.
+4. If the Properties window has an Unblock button, select it.
+
+To use this font as the default in Q'Nial for Windows do the following steps:
+1. Start Q'Nial for Windows.
+2. Under the File menu selected Preferences-> New Interpreter Settings
+3. In the dialog box, 
+	a) Click on Set Font and choose ISIJ.ttf from the list of fonts and click OK.
+	b) Select the Use Box Characters option.
+	c) Click on Apply and Close
+4. Exit Q'Nial for Windows and restart it
+5. Execute tell 2 3 in the interpreter window and confirm the new boxing is in effect.
+
+The paper "Array Theory and Nial" uses the boxing characters and assumes the ISIJ font is
+installed.
+ 

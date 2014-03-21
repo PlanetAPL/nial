@@ -1,0 +1,366 @@
+Building Q'Nial binary versions for Windows and Unix
+
+The following sections give the instructions for building Q'Nial for Windows 
+and Unix versions using the tools and set up available to Mike Jenkins. 
+
+1. Building the Windows console version of Q'Nial
+
+These instructions assume you are building "nial.exe" using the Borland C++ v5.02 
+compiler with the project file Nial.ide provided with the source. There are 
+three parts to this process:
+
+Part 1 - adjusting the set of primitives and generating the necessary 
+         files that connect the names of the primitives to the code routines.
+Part 2 - using the Borland C compiler to compile nial.exe.
+Part 3 - moving the new executable file to the Nial root directory.
+
+Part 1.
+
+1.1 Start the Windows Command program (under Accessories) and enter:
+cd c:\NialV63source\Windows\build 
+to move execution to the "build" directory.
+
+Execute the command:
+	cd pkgblder
+
+If you have added or deleted primitives in userops.c then you must modify the 
+file "allprims.nh" in this subdirectory.
+
+
+Open the file "allprims.nh" using an editor and add a line of the form:
+
+U . foo ifoo
+
+for each new primitive that has been coded into "userops.c". 
+The first letter indicates the class of primitive object:
+  E - expression
+  U - operation
+  T - transformer
+The space dot space format must be followed exactly.
+
+The first name is the name by which the primitive is to be known in Nial 
+expressions. The second name is the name of the C routine that implements 
+the primitive.
+
+If you have deleted the code for a primitive from "userops.c then remove 
+its corresponding line in "allprims.nh".
+
+1.2 Invoke Nial with the command:
+nial -defs procpkg
+
+This action loads the script "procpkg.ndf"
+
+The script displays a numbered list of package names and waits for a response. 
+You want to use the "wincons.pkg". Find it in the list and respond to the 
+prompt with its number.     
+
+The script proceeds to builds the files: 
+basics.c 
+basics.h 
+defs.ndf
+defstbl.h
+pkgswchs.h
+and moves them to the "build" directory.
+
+
+1.3 Move back to the "build" directory using the command:
+ cd ..
+
+and invoke the Borland C compiler with project Nial.ide by executing
+
+	nial.ide
+
+Part 2.
+
+The Borland development environment will appear with the project Window displayed.
+
+Right-click on the "nial.exe" line and select the menu item "Build". This 
+will compile all the modules, and link them into the executable file "nial.exe", 
+which is placed in the bin subdirectory.
+
+You can directly execute the version by right-clicking on the nial.exe line 
+and selecting View and then Run. A Command window pops up with the Q'Nial i
+nterpreter invoked.
+
+If your changes to the source have caused errors to occur, make corrections 
+in the source files and redo the Build step above.
+
+You can make changes in userops.c and redo Part 2 until you have debugged them.
+
+Part 3.
+
+When you are satisfied with the changes, copy the nial executable to the 
+Nialroot directory with the following command:
+
+	copy bin\nial.exe c:\QNialV63
+
+You also need to copy the generated defs.ndf file to the initial directory using
+
+      copy defs.ndf c:\QNialV63\initial
+
+This completes the task of building the console version of Q'Nial for Windows.
+
+
+The programs runnial.exe and cginial.exe are variants of the console version. They 
+use the same source as the nial.exe file. They are built by selecting the 
+appropriate executable line in the Borland project file in Part 2 above.
+
+
+2. Building the Windows GUI version of Q'Nial
+
+These instructions assume you are building "winnial.exe" using the Borland C++ V5.02 
+compiler with the project file winnial.ide provided with the source. There are three 
+parts to this process:
+Part 1 - adjusting the set of primitives and generating the necessary files 
+         that connect the names of the primitives to the code routines.
+Part 2 - using the Borland C compiler to compile winnial.exe
+Part 3 - moving the new executable file to the Nial root directory
+
+Part 1. 
+
+1. Start the Windows Command program (under Accessories) and enter:
+cd c:\NialV63source\Windows\build 
+to move execution to the "build" directory.
+
+Execute the command:
+	cd pkgblder
+
+If you have added or deleted primitives in userops.c and have not built the 
+console version of Q'Nial then you must modify the file "allprims.nh" in 
+this subdirectory.
+
+
+Open the file "allprims.nh" using an editor and add a line of the form:
+
+U . foo ifoo
+
+for each new primitive that has been coded into "userops.c". 
+The first letter indicates the class of primitive object:
+  E - expression
+  U - operation
+  T - transformer
+The space dot space format must be followed exactly.
+The first name is the name by which the primitive is to be known in
+Nial expressions. The second name is the name of the C routine that
+implements the primitive.
+
+If you have deleted the code for a primitive from "userops.c then remove 
+its corresponding line in "allprims.nh".
+
+2. Invoke Nial with the command:
+nial -defs procpkg
+
+This action loads the script "procpkg.ndf"
+
+The script displays a numbered list of package names and waits for a response. 
+You want to use the "qnforwin.pkg". Find it in the list and respond to the 
+prompt with its number.     
+
+The script proceeds to builds the files: 
+basics.c 
+basics.h 
+defs.ndf
+defstbl.h
+pkgswchs.h
+and moves them to the "build" directory.
+
+
+3. Move to the "win32gui" directory using the command:
+ cd ..\..\win32gui
+
+and invoke the Borland C compiler with project winmial.ide by executing
+
+	winnial.ide
+
+Part 2.
+
+The Borland development environment will appear with the project Window displayed.
+
+will compile all the core Q'Nial modules, and link them into the library 
+file "winprof.lib", which is placed in the bin subdirectory.
+
+Right-click on the "winnial.exe" line and select the menu item "Build". This will 
+compile all the GUI interface modules, and link them with the library file built 
+in the previous step to produce the executable file "winnial.exe", which is 
+placed in the bin subdirectory.
+
+You can directly execute the version by right-clicking on the winnial.exe line 
+and selecting View and then Run. The Q'Nial programming environment opens with 
+an interpreter window. You can test that the interpreter is working as expected.
+
+If your changes to the source have caused errors to occur, make corrections 
+in the source files and redo the Build step above.
+
+You can make changes in userops.c and redo Part 2 until you have debugged them.
+
+Part 3.
+
+When you are satisfied with the changes, copy the new executable to the Nialroot 
+directory with the following command:
+
+	copy bin\winnial.exe c:\QNialV63
+
+You also need to copy the generated defs.ndf file to the initial directory using
+
+      copy defs.ndf c:\QNialV63\initial
+
+This completes the task of building the GUI version of Q'Nial for Windows.
+
+
+3. Building the UNIX console version of Q'Nial
+
+The Unix versions are built using the GNU gcc and g++ compilers and an associated 
+makefile that is provided. The source code is provided separately for Linux and 
+Sun Solaris versions, but is essentially the same.
+
+There are three parts to this process:
+
+Part 1 - adjusting the set of primitives and generating the necessary files that 
+         connect the names of the primitives to the code routines.
+Part 2 - using the GNU compilers to compile nial.
+Part 3 - moving the new executable file to the bin directory.
+
+Part 1.
+Move to the "build" directory for the version you are going to modify or build. 
+
+Execute the command:
+	cd pkgblder
+
+If you have added or deleted primitives in userops.c then you must modify the 
+file "allprims.nh" in this subdirectory.
+
+
+Open the file "allprims.nh" using an editor and add a line of the form:
+
+U . foo ifoo
+
+for each new primitive that has been coded into "userops.c". 
+The first letter indicates the class of primitive object:
+  E - expression
+  U - operation
+  T - transformer
+The space dot space format must be followed exactly.
+
+The first name is the name by which the primitive is to be known in Nial 
+expressions. The second name is the name of the C routine that implements 
+the primitive.
+
+If you have deleted the code for a primitive from "userops.c then remove its 
+corresponding line in "allprims.nh".
+
+1.2 Invoke nial with the command:
+./nial -defs procpkg
+
+This action loads the script "procpkg.ndf"
+
+The script displays a numbered list of package names and waits for a response. 
+You want to use the "unixcons.pkg". Find it in the list and respond to the 
+prompt with its number.     
+
+The script proceeds to builds the files: 
+basics.c 
+basics.h 
+defs.ndf
+defstbl.h
+pkgswchs.h
+and moves them to the "build" directory.
+
+
+Part 2.
+
+Move back to the build directory using:
+	cd ..
+
+Enter the command 
+	make
+
+This will compile all the object files and link them into the executable file "nial".
+
+Enter:
+	./nial
+to begin execution of the Q'Nial interpreter and test by entering 
+sum count 10
+which should respond with 55.
+Enter Bye to exit.
+
+
+If your changes to the source have caused errors to occur, make corrections in 
+the source files and redo the make step above.
+
+You can make changes in userops.c and redo Part 2 until you have debugged them.
+
+Part 3.
+
+When you are satisfied with the changes, copy the nial executable to the bin 
+directory where you can access it.
+
+
+This completes the task of building the console version of Q'Nial for Unix.
+
+
+The programs runnial and cginial are variants of the console version. They use 
+the same source but with a command line change in the makefile. For the former 
+add -DRUNTIMEONLY to CFLAGS, and for the latter add -DCGINIAL. In both cases 
+you need to remove the *.o files, redo the make and then rename nial to the 
+corresponding name.
+
+
+4. Building the Help file for the Windows GUI version.
+
+The directory c:NialV63source\nialhelp and its subdirectories are used to build 
+the Windows help file "winnial.hlp".
+
+The subdirectory "buildhelp" holds the Nial routines that are used to construct 
+the file "nialprim.rtf" and place it in the subdirectory "WinNial".
+
+The subdirectory "Dictionary" holds *.nhs files that are used by the script 
+buildhelp.ndf to create "nialprim.rtf". (The script can also be used to generate 
+the paper copy of the Nial Dictionary, but this is documented here.)
+
+The subdirectory "WinNial" also contains other *.rtf files that build the rest 
+of the WinNial help information, the help compiler "whc.exe" and the project file 
+"winhelp.whp".
+
+The process of rebuilding the WinNial.hlp files requires the following steps:
+
+1. Make changes to the *.nhs or *.rtf files described above as desired.
+2. Start the Windows Command program (under Accessories) and enter:
+cd c:\NialV63source\nialhelp\buildhelp
+to move execution to the "buildhelp" subdirectory.
+
+3. Execute the command:
+C:\QNialV63\nial.exe -defs main
+To load the script "main.ndf"
+
+Enter the nial action
+buildhelp
+that processes the files in the subdirectory Dictionary. When the *.rtf files 
+have been generated the script prints "Done." 
+
+Type the action:
+Bye
+to terminate nial.
+
+4. Change to the subdirectory "WinNial" using:
+	cd ..\WinNial
+and start the help compiler with the command
+	hcw.exe
+This will bring up the Microsoft Help Workspace tool.
+
+Under the File menu select Open... and open the file winnial.hpj. This displays 
+the project details in the window.
+
+Under the File menu select Compile... ,which processes the *.rtf files and 
+produces the help file "winnial.hlp"
+
+5. Under the File menu select Run Help... to test that thechanges to the Q'Nial 
+help have been picked up correctly. If there are errors re-edit the help source 
+files and repeat steps 3 and 4.
+
+When you are satisfied with the changes move the new helpfile to the Nialroot 
+directory useing the command:
+	Copy winnial.hlp c:QNialV63
+
+
+This completes the work to generate the Windows Help files for Q'Nial.
+

@@ -1,0 +1,1639 @@
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:w="urn:schemas-microsoft-com:office:word"
+xmlns:m="http://schemas.microsoft.com/office/2004/12/omml"
+xmlns:mv="http://macVmlSchemaUri" xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta name=Title content="Using Nial as a CGI processor">
+<meta name=Keywords content="">
+<meta http-equiv=Content-Type content="text/html; charset=macintosh">
+<meta name=ProgId content=Word.Document>
+<meta name=Generator content="Microsoft Word 14">
+<meta name=Originator content="Microsoft Word 14">
+<link rel=File-List href="Using%20CGI-Nial_files/filelist.xml">
+<link rel=Edit-Time-Data href="Using%20CGI-Nial_files/editdata.mso">
+<!--[if !mso]>
+<style>
+v\:* {behavior:url(#default#VML);}
+o\:* {behavior:url(#default#VML);}
+w\:* {behavior:url(#default#VML);}
+.shape {behavior:url(#default#VML);}
+</style>
+<![endif]-->
+<title>Using Nial as a CGI processor</title>
+<!--[if gte mso 9]><xml>
+ <o:DocumentProperties>
+  <o:Author>Michael A. Jenkins</o:Author>
+  <o:LastAuthor>Sherlock Holmes</o:LastAuthor>
+  <o:Revision>2</o:Revision>
+  <o:TotalTime>0</o:TotalTime>
+  <o:LastPrinted>2014-03-21T23:46:00Z</o:LastPrinted>
+  <o:Created>2014-03-21T23:49:00Z</o:Created>
+  <o:LastSaved>2014-03-21T23:49:00Z</o:LastSaved>
+  <o:Pages>3</o:Pages>
+  <o:Words>2635</o:Words>
+  <o:Characters>15026</o:Characters>
+  <o:Company>NIAL Systems Limited</o:Company>
+  <o:Lines>125</o:Lines>
+  <o:Paragraphs>35</o:Paragraphs>
+  <o:CharactersWithSpaces>17626</o:CharactersWithSpaces>
+  <o:Version>14.0</o:Version>
+ </o:DocumentProperties>
+ <o:OfficeDocumentSettings>
+  <o:AllowPNG/>
+ </o:OfficeDocumentSettings>
+</xml><![endif]-->
+<link rel=themeData href="Using%20CGI-Nial_files/themedata.xml">
+<!--[if gte mso 9]><xml>
+ <w:WordDocument>
+  <w:TrackMoves>false</w:TrackMoves>
+  <w:TrackFormatting/>
+  <w:DoNotHyphenateCaps/>
+  <w:PunctuationKerning/>
+  <w:DrawingGridHorizontalSpacing>6 pt</w:DrawingGridHorizontalSpacing>
+  <w:DrawingGridVerticalSpacing>6 pt</w:DrawingGridVerticalSpacing>
+  <w:DisplayVerticalDrawingGridEvery>0</w:DisplayVerticalDrawingGridEvery>
+  <w:UseMarginsForDrawingGridOrigin/>
+  <w:ValidateAgainstSchemas/>
+  <w:SaveIfXMLInvalid>false</w:SaveIfXMLInvalid>
+  <w:IgnoreMixedContent>false</w:IgnoreMixedContent>
+  <w:AlwaysShowPlaceholderText>false</w:AlwaysShowPlaceholderText>
+  <w:DoNotPromoteQF/>
+  <w:LidThemeOther>EN-US</w:LidThemeOther>
+  <w:LidThemeAsian>JA</w:LidThemeAsian>
+  <w:LidThemeComplexScript>X-NONE</w:LidThemeComplexScript>
+  <w:Compatibility>
+   <w:SpaceForUL/>
+   <w:BalanceSingleByteDoubleByteWidth/>
+   <w:DoNotLeaveBackslashAlone/>
+   <w:ULTrailSpace/>
+   <w:DoNotExpandShiftReturn/>
+   <w:UsePrinterMetrics/>
+   <w:WW6BorderRules/>
+   <w:FootnoteLayoutLikeWW8/>
+   <w:ShapeLayoutLikeWW8/>
+   <w:AutoSpaceLikeWord95/>
+   <w:UseWord97LineBreakingRules/>
+   <w:SelectEntireFieldWithStartOrEnd/>
+   <w:UseWord2002TableStyleRules/>
+   <w:DontUseIndentAsNumberingTabStop/>
+   <w:FELineBreak11/>
+   <w:WW11IndentRules/>
+   <w:DontAutofitConstrainedTables/>
+   <w:AutofitLikeWW11/>
+   <w:UnderlineTabInNumList/>
+   <w:HangulWidthLikeWW11/>
+   <w:UseNormalStyleForList/>
+   <w:DontVertAlignCellWithSp/>
+   <w:DontBreakConstrainedForcedTables/>
+   <w:DontVertAlignInTxbx/>
+   <w:Word11KerningPairs/>
+   <w:CachedColBalance/>
+  </w:Compatibility>
+  <m:mathPr>
+   <m:mathFont m:val="Cambria Math"/>
+   <m:brkBin m:val="before"/>
+   <m:brkBinSub m:val="&#45;-"/>
+   <m:smallFrac m:val="off"/>
+   <m:dispDef/>
+   <m:lMargin m:val="0"/>
+   <m:rMargin m:val="0"/>
+   <m:defJc m:val="centerGroup"/>
+   <m:wrapIndent m:val="1440"/>
+   <m:intLim m:val="subSup"/>
+   <m:naryLim m:val="undOvr"/>
+  </m:mathPr></w:WordDocument>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:LatentStyles DefLockedState="false" DefUnhideWhenUsed="true"
+  DefSemiHidden="true" DefQFormat="false" DefPriority="99"
+  LatentStyleCount="276">
+  <w:LsdException Locked="false" Priority="0" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Normal"/>
+  <w:LsdException Locked="false" Priority="9" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="heading 1"/>
+  <w:LsdException Locked="false" Priority="9" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="heading 2"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 3"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 4"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 5"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 6"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 7"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 8"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 9"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 1"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 2"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 3"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 4"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 5"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 6"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 7"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 8"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 9"/>
+  <w:LsdException Locked="false" Priority="35" QFormat="true" Name="caption"/>
+  <w:LsdException Locked="false" Priority="10" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Title"/>
+  <w:LsdException Locked="false" Priority="0" Name="Default Paragraph Font"/>
+  <w:LsdException Locked="false" Priority="11" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Subtitle"/>
+  <w:LsdException Locked="false" Priority="22" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Strong"/>
+  <w:LsdException Locked="false" Priority="20" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Emphasis"/>
+  <w:LsdException Locked="false" Priority="59" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Table Grid"/>
+  <w:LsdException Locked="false" UnhideWhenUsed="false" Name="Placeholder Text"/>
+  <w:LsdException Locked="false" Priority="1" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="No Spacing"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading Accent 1"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List Accent 1"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid Accent 1"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1 Accent 1"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2 Accent 1"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1 Accent 1"/>
+  <w:LsdException Locked="false" UnhideWhenUsed="false" Name="Revision"/>
+  <w:LsdException Locked="false" Priority="34" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="List Paragraph"/>
+  <w:LsdException Locked="false" Priority="29" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Quote"/>
+  <w:LsdException Locked="false" Priority="30" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Intense Quote"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2 Accent 1"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1 Accent 1"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2 Accent 1"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3 Accent 1"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List Accent 1"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading Accent 1"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List Accent 1"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid Accent 1"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading Accent 2"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List Accent 2"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid Accent 2"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1 Accent 2"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2 Accent 2"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1 Accent 2"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2 Accent 2"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1 Accent 2"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2 Accent 2"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3 Accent 2"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List Accent 2"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading Accent 2"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List Accent 2"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid Accent 2"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading Accent 3"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List Accent 3"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid Accent 3"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1 Accent 3"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2 Accent 3"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1 Accent 3"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2 Accent 3"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1 Accent 3"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2 Accent 3"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3 Accent 3"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List Accent 3"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading Accent 3"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List Accent 3"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid Accent 3"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading Accent 4"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List Accent 4"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid Accent 4"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1 Accent 4"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2 Accent 4"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1 Accent 4"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2 Accent 4"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1 Accent 4"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2 Accent 4"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3 Accent 4"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List Accent 4"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading Accent 4"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List Accent 4"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid Accent 4"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading Accent 5"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List Accent 5"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid Accent 5"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1 Accent 5"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2 Accent 5"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1 Accent 5"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2 Accent 5"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1 Accent 5"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2 Accent 5"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3 Accent 5"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List Accent 5"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading Accent 5"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List Accent 5"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid Accent 5"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading Accent 6"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List Accent 6"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid Accent 6"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1 Accent 6"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2 Accent 6"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1 Accent 6"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2 Accent 6"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1 Accent 6"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2 Accent 6"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3 Accent 6"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List Accent 6"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading Accent 6"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List Accent 6"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid Accent 6"/>
+  <w:LsdException Locked="false" Priority="19" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Subtle Emphasis"/>
+  <w:LsdException Locked="false" Priority="21" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Intense Emphasis"/>
+  <w:LsdException Locked="false" Priority="31" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Subtle Reference"/>
+  <w:LsdException Locked="false" Priority="32" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Intense Reference"/>
+  <w:LsdException Locked="false" Priority="33" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Book Title"/>
+  <w:LsdException Locked="false" Priority="37" Name="Bibliography"/>
+  <w:LsdException Locked="false" Priority="39" QFormat="true" Name="TOC Heading"/>
+ </w:LatentStyles>
+</xml><![endif]-->
+<style>
+<!--
+ /* Font Definitions */
+@font-face
+	{font-family:Arial;
+	panose-1:2 11 6 4 2 2 2 2 2 4;
+	mso-font-charset:0;
+	mso-generic-font-family:auto;
+	mso-font-pitch:variable;
+	mso-font-signature:-536859905 -1073711037 9 0 511 0;}
+@font-face
+	{font-family:"Courier New";
+	panose-1:2 7 3 9 2 2 5 2 4 4;
+	mso-font-charset:0;
+	mso-generic-font-family:auto;
+	mso-font-pitch:variable;
+	mso-font-signature:-536859905 -1073711037 9 0 511 0;}
+ /* Style Definitions */
+p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{mso-style-unhide:no;
+	mso-style-qformat:yes;
+	mso-style-parent:"";
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	mso-layout-grid-align:none;
+	punctuation-wrap:simple;
+	text-autospace:none;
+	font-size:10.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+h1
+	{mso-style-unhide:no;
+	mso-style-qformat:yes;
+	mso-style-next:Normal;
+	margin:0in;
+	margin-bottom:.0001pt;
+	text-align:center;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:1;
+	mso-layout-grid-align:none;
+	punctuation-wrap:simple;
+	text-autospace:none;
+	font-size:20.0pt;
+	mso-bidi-font-size:10.0pt;
+	font-family:"Times New Roman";
+	mso-font-kerning:0pt;
+	mso-ansi-language:EN-CA;
+	mso-bidi-font-weight:normal;}
+h2
+	{mso-style-unhide:no;
+	mso-style-qformat:yes;
+	mso-style-next:Normal;
+	margin:0in;
+	margin-bottom:.0001pt;
+	text-align:center;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:2;
+	mso-layout-grid-align:none;
+	punctuation-wrap:simple;
+	text-autospace:none;
+	font-size:14.0pt;
+	mso-bidi-font-size:10.0pt;
+	font-family:"Times New Roman";
+	mso-ansi-language:EN-CA;
+	mso-bidi-font-weight:normal;}
+@page WordSection1
+	{size:8.5in 11.0in;
+	margin:1.0in 1.25in 1.0in 1.25in;
+	mso-header-margin:.5in;
+	mso-footer-margin:.5in;
+	mso-paper-source:0;}
+div.WordSection1
+	{page:WordSection1;}
+-->
+</style>
+<!--[if gte mso 10]>
+<style>
+ /* Style Definitions */
+table.MsoNormalTable
+	{mso-style-name:"Table Normal";
+	mso-tstyle-rowband-size:0;
+	mso-tstyle-colband-size:0;
+	mso-style-noshow:yes;
+	mso-style-priority:99;
+	mso-style-parent:"";
+	mso-padding-alt:0in 5.4pt 0in 5.4pt;
+	mso-para-margin:0in;
+	mso-para-margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;
+	font-family:"Times New Roman";}
+</style>
+<![endif]-->
+</head>
+
+<body bgcolor=white lang=EN-US style='tab-interval:.5in'>
+
+<div class=WordSection1>
+
+<p class=MsoNormal align=center style='text-align:center'><span
+style='font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:Arial;mso-bidi-font-family:
+"Times New Roman"'><o:p>&nbsp;</o:p></span></p>
+
+<h1><span lang=EN-CA><o:p>&nbsp;</o:p></span></h1>
+
+<p class=MsoNormal><span lang=EN-CA style='mso-ansi-language:EN-CA'><o:p>&nbsp;</o:p></span></p>
+
+<h2><span lang=EN-CA style='font-size:10.0pt'><!--[if gte vml 1]><v:shapetype
+ id="_x0000_t75" coordsize="21600,21600" o:spt="75" o:preferrelative="t"
+ path="m@4@5l@4@11@9@11@9@5xe" filled="f" stroked="f">
+ <v:stroke joinstyle="miter"/>
+ <v:formulas>
+  <v:f eqn="if lineDrawn pixelLineWidth 0"/>
+  <v:f eqn="sum @0 1 0"/>
+  <v:f eqn="sum 0 0 @1"/>
+  <v:f eqn="prod @2 1 2"/>
+  <v:f eqn="prod @3 21600 pixelWidth"/>
+  <v:f eqn="prod @3 21600 pixelHeight"/>
+  <v:f eqn="sum @0 0 1"/>
+  <v:f eqn="prod @6 1 2"/>
+  <v:f eqn="prod @7 21600 pixelWidth"/>
+  <v:f eqn="sum @8 21600 0"/>
+  <v:f eqn="prod @7 21600 pixelHeight"/>
+  <v:f eqn="sum @10 21600 0"/>
+ </v:formulas>
+ <v:path o:extrusionok="f" gradientshapeok="t" o:connecttype="rect"/>
+ <o:lock v:ext="edit" aspectratio="t"/>
+</v:shapetype><v:shape id="_x0000_i1025" type="#_x0000_t75" style='width:2in;
+ height:198pt'>
+ <v:imagedata src="Using%20CGI-Nial_files/image001.wmz" o:title=""/>
+</v:shape><![endif]--><![if !vml]><img width=146 height=200
+src="Using%20CGI-Nial_files/image002.png" v:shapes="_x0000_i1025"><![endif]></span></h2>
+
+<p class=MsoNormal><span lang=EN-CA style='mso-ansi-language:EN-CA'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-CA style='mso-ansi-language:EN-CA'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-CA style='mso-ansi-language:EN-CA'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-CA style='mso-ansi-language:EN-CA'><o:p>&nbsp;</o:p></span></p>
+
+<h2><span style='font-size:18.0pt;mso-bidi-font-size:10.0pt;mso-ansi-language:
+EN-US'>Using CGI-Nial<o:p></o:p></span></h2>
+
+<p class=MsoNormal align=center style='text-align:center'><b style='mso-bidi-font-weight:
+normal'><span style='font-size:16.0pt;mso-bidi-font-size:10.0pt'><o:p>&nbsp;</o:p></span></b></p>
+
+<h2><span lang=EN-CA>Version 6.3</span><span lang=EN-GB style='font-family:
+Arial;mso-bidi-font-family:"Times New Roman";mso-ansi-language:EN-GB'><o:p></o:p></span></h2>
+
+<p class=MsoNormal align=center style='text-align:center;tab-stops:-1.0in'><b
+style='mso-bidi-font-weight:normal'><span lang=EN-GB style='font-family:Arial;
+mso-bidi-font-family:"Times New Roman";mso-ansi-language:EN-GB'><o:p>&nbsp;</o:p></span></b></p>
+
+<p class=MsoNormal align=center style='text-align:center;tab-stops:-1.0in'><b
+style='mso-bidi-font-weight:normal'><span lang=EN-GB style='mso-ansi-language:
+EN-GB'>August 2005</span></b><b style='mso-bidi-font-weight:normal'><span
+lang=EN-GB style='font-size:14.0pt;mso-bidi-font-size:10.0pt;mso-ansi-language:
+EN-GB'><o:p></o:p></span></b></p>
+
+<p class=MsoNormal align=center style='text-align:center;tab-stops:-1.0in'><b
+style='mso-bidi-font-weight:normal'><span lang=EN-GB style='font-family:Symbol;
+mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:"Times New Roman";
+mso-ansi-language:EN-GB;mso-char-type:symbol;mso-symbol-font-family:Symbol'><span
+style='mso-char-type:symbol;mso-symbol-font-family:Symbol'>Ó</span></span></b><b
+style='mso-bidi-font-weight:normal'><span lang=EN-GB style='mso-ansi-language:
+EN-GB'> Nial Systems Limited<o:p></o:p></span></b></p>
+
+<p class=MsoNormal align=center style='text-align:center'><span
+style='font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:Arial;mso-bidi-font-family:
+"Times New Roman"'><o:p>&nbsp;</o:p></span></p>
+
+<span style='font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:Arial;
+mso-fareast-font-family:"Times New Roman";mso-bidi-font-family:"Times New Roman";
+mso-ansi-language:EN-US;mso-fareast-language:EN-US;mso-bidi-language:AR-SA'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal align=center style='text-align:center'><span
+style='font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:Arial;mso-bidi-font-family:
+"Times New Roman"'>Preface <o:p></o:p></span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><span
+style='font-family:Arial;mso-bidi-font-family:"Times New Roman"'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><span
+style='font-family:Arial;mso-bidi-font-family:"Times New Roman"'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial;mso-bidi-font-family:"Times New Roman"'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+style='font-family:Arial;mso-bidi-font-family:"Times New Roman"'>Introduction</span></b><span
+style='font-family:Arial;mso-bidi-font-family:"Times New Roman"'><o:p></o:p></span></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>CGI-Nial is a special version of Console Nial that can be
+used as a CGI processing language for supporting Web processing.<span
+style="mso-spacerun:yes">&nbsp; </span>It provides a powerful computational
+ability to compute dynamic HTML to support forms within a Web-based
+application.<span style="mso-spacerun:yes">&nbsp; </span>CGI-Nial is executed
+by a URL reference that requests the execution via the Common Gateway Interface
+of a file that triggers the executable <i style='mso-bidi-font-style:normal'>cginial</i>.
+Such files are Nial Definition files (.ndf) or Nial Form files (.nfm) On
+Windows systems the suffix is used to trigger the execution of CGI-Nial. On
+Unix, the files begin with the specific code to trigger the executable.</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>This document introduces the concept of a Nial Form, describes
+the additional built-in facilities that have been added in CGI-Nial and
+discusses how the facilities are used to build Web-based applications.</p>
+
+<p class=MsoNormal><span style='font-family:Arial;mso-bidi-font-family:"Times New Roman"'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+style='font-family:Arial;mso-bidi-font-family:"Times New Roman"'><o:p>&nbsp;</o:p></span></b></p>
+
+<p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+style='font-family:Arial;mso-bidi-font-family:"Times New Roman"'>Nial Form
+files</span></b><span style='font-family:Arial;mso-bidi-font-family:"Times New Roman"'><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial;mso-bidi-font-family:"Times New Roman"'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal>A Nial form file is a special file layout intend for direct
+use with CGI-Nial to generate dynamic </p>
+
+<p class=MsoNormal>HTML. The file has three sections: a header, an HTML
+template and Nial program code. </p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>The default header is:</p>
+
+<p class=MsoNormal><span style='font-family:Arial;mso-bidi-font-family:"Times New Roman"'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.5in;text-indent:.5in'><span
+style='font-family:"Courier New";mso-bidi-font-family:"Times New Roman"'>#!/bin/csh<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.5in;text-indent:.5in'><span
+style='font-family:"Courier New";mso-bidi-font-family:"Times New Roman"'>exec
+/usr/local/bin/cginial $0 $*<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.5in;text-indent:.5in'><span
+style='font-family:"Courier New";mso-bidi-font-family:"Times New Roman"'>NODEBUG<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.5in;text-indent:.5in'><span
+style='font-family:"Courier New";mso-bidi-font-family:"Times New Roman"'>NOLOG<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.5in;text-indent:.5in'><span
+style='font-family:"Courier New";mso-bidi-font-family:"Times New Roman"'>NOVARIABLES<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.5in;text-indent:.5in'><span
+style='font-family:"Courier New";mso-bidi-font-family:"Times New Roman"'>NOPROFILE<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.5in;text-indent:.5in'><span
+style='font-family:Arial;mso-bidi-font-family:"Times New Roman"'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal>The first two lines are for Unix versions and are used to
+trigger the execution of CGI-Nial, assuming it has been place in
+“/usr/local/bin”. They are treated as a comment by the</p>
+
+<p class=MsoNormal>Windows version.</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>The next four lines are used to control debugging
+capabilities provided as part of the form processing process. If NODEBUG is
+replaced with DEBUG then the execution of the Nial code in the form file is
+output and will appear in the HTML document. If NOLOG is changes to LOG, then
+the execution of the Nial code is placed in the log file <i style='mso-bidi-font-style:
+normal'>cgi_form.log</i>. If NOVARIABLES is changes to VARIABLES then the
+values associated with names passed by CGI are displayed at the top of the HTML
+page. Finally, if NOPROFILE is replaced with PROFILE, then the execution of the
+Nial code is profiled and the information is written to <i style='mso-bidi-font-style:
+normal'>cgi_form.prf</i>. </p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>The HTML template is a block of HTML code with special tags
+that indicate where data is to be replaced dynamically. The overall layout of
+the page as displayed in the browser can be set up by this fixed HTML code. The
+HTML code can be hand crafted or prepared with the help of an HTML editor. </p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>There are two kinds of special tags: NIALVAR and
+NIALINCLUDE. The first tag can be used anywhere within an HTML construct in the
+form “NIALVAR:varname” where an explicit string would go. When the template is
+processed the string associated with <i style='mso-bidi-font-style:normal'>varname</i>
+is substituted for</p>
+
+<p class=MsoNormal>the tagged name.</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>The second tag is used like an HTML<span
+style="mso-spacerun:yes">&nbsp; </span>construct. The syntax
+&lt;NIALINCLUDE:varname&gt; is placed where you want a list of dynamically
+generated HTML strings to be placed. When the template is processed the entire
+construct is replaced by the list of strings associated with <i
+style='mso-bidi-font-style:normal'>varname</i>. Here is a sample of a HTML<span
+style="mso-spacerun:yes">&nbsp; </span>template from the file <i
+style='mso-bidi-font-style:normal'>simple.nfm</i>:</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><span style='font-family:Arial;mso-bidi-font-family:"Times New Roman"'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:"Courier New";mso-bidi-font-family:
+"Times New Roman"'>&lt;HTML&gt;<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:"Courier New";mso-bidi-font-family:
+"Times New Roman"'>&lt;HEAD&gt;<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:"Courier New";mso-bidi-font-family:
+"Times New Roman"'>&lt;TITLE&gt;Simple test of a Nial form&lt;/TITLE&gt;<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:"Courier New";mso-bidi-font-family:
+"Times New Roman"'>&lt;/HEAD&gt;<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:"Courier New";mso-bidi-font-family:
+"Times New Roman"'>&lt;BODY BGCOLOR=&quot;#FFFFFF&quot;
+TEXT=&quot;#333333&quot; link=ff0707 alink=ffffff vlink=5f9ec0&gt;<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:"Courier New";mso-bidi-font-family:
+"Times New Roman"'>&lt;FONT FACE=&quot;ariel&quot;&gt;&lt;FONT
+FACE=&quot;Helvetica&quot;&gt;&lt;FONT SIZE=2&gt;<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:"Courier New";mso-bidi-font-family:
+"Times New Roman"'>&lt;p&gt;<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:"Courier New";mso-bidi-font-family:
+"Times New Roman"'>&lt;hr size=4&gt;<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:"Courier New";mso-bidi-font-family:
+"Times New Roman"'>&lt;p&gt;<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:"Courier New";mso-bidi-font-family:
+"Times New Roman"'>&lt;NIALINCLUDE:outputresults&gt;<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:"Courier New";mso-bidi-font-family:
+"Times New Roman"'>&lt;hr size=4&gt;<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:"Courier New";mso-bidi-font-family:
+"Times New Roman"'>&lt;form METHOD = GET
+action=&quot;/cgi-shl/simple.nfm&quot;&gt;<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:"Courier New";mso-bidi-font-family:
+"Times New Roman"'>&lt;p&gt;<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:"Courier New";mso-bidi-font-family:
+"Times New Roman"'>In the input area below you may enter a name. You will<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:"Courier New";mso-bidi-font-family:
+"Times New Roman"'>receive a greeting with this name.<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:"Courier New";mso-bidi-font-family:
+"Times New Roman"'>&lt;p&gt;<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:"Courier New";mso-bidi-font-family:
+"Times New Roman"'>&lt;input type=reset value=&quot;Clear&quot;&gt;<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:"Courier New";mso-bidi-font-family:
+"Times New Roman"'>&lt;input type=submit<span style="mso-spacerun:yes">&nbsp;
+</span>value=&quot;Execute&quot;&gt;<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:"Courier New";mso-bidi-font-family:
+"Times New Roman"'>&lt;input type=string name=&quot;Name&quot;
+value=&quot;NIALVAR:Defaultname&quot;&gt;<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:"Courier New";mso-bidi-font-family:
+"Times New Roman"'>&lt;/form&gt;<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:"Courier New";mso-bidi-font-family:
+"Times New Roman"'>&lt;/FONT&gt;&lt;/FONT&gt;&lt;/FONT&gt;<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:"Courier New";mso-bidi-font-family:
+"Times New Roman"'>&lt;/BODY&gt;<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:"Courier New";mso-bidi-font-family:
+"Times New Roman"'>&lt;/HTML&gt;<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial;mso-bidi-font-family:"Times New Roman"'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal>The page displays a message that is generated as <i
+style='mso-bidi-font-style:normal'>outputresults</i> when it is processed, and
+presents a form with an input field and two buttons marked Execute and Clear.
+The initial contents of the input field is determined by <i style='mso-bidi-font-style:
+normal'>Defaultname</i>. The action field for the form points to the same Nial
+form file.</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>The Nial code section of the form consists of any number of
+Nial definition and statements. The purpose of the code is to compute the
+values of any of the fields that are dynamic in the HTML code. The Nial code
+from <i style='mso-bidi-font-style:normal'>simple.nfm</i> is:</p>
+
+<p class=MsoNormal><span style='font-family:Arial;mso-bidi-font-family:"Times New Roman"'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:"Courier New";mso-bidi-font-family:
+"Times New Roman"'>Defaultname := 'Tom';<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:"Courier New";mso-bidi-font-family:
+"Times New Roman"'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:"Courier New";mso-bidi-font-family:
+"Times New Roman"'>Generate_simple_form IS {<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:"Courier New";mso-bidi-font-family:
+"Times New Roman"'><span style="mso-spacerun:yes">&nbsp; </span>IF existval
+'Name' THEN<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:"Courier New";mso-bidi-font-family:
+"Times New Roman"'><span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;
+</span>Name := getfirstval 'Name';<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:"Courier New";mso-bidi-font-family:
+"Times New Roman"'><span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp; </span>IF
+empty Name THEN<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:"Courier New";mso-bidi-font-family:
+"Times New Roman"'><span
+style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>Outputresults :=
+[''];<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:"Courier New";mso-bidi-font-family:
+"Times New Roman"'><span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;
+</span>ELSE<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:"Courier New";mso-bidi-font-family:
+"Times New Roman"'><span
+style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>Outputresults :=
+[link 'Hello ' Name];<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:"Courier New";mso-bidi-font-family:
+"Times New Roman"'><span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;
+</span>ENDIF;<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:"Courier New";mso-bidi-font-family:
+"Times New Roman"'><span style="mso-spacerun:yes">&nbsp; </span>ELSE<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:"Courier New";mso-bidi-font-family:
+"Times New Roman"'><span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;
+</span>Outputresults := [''];<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:"Courier New";mso-bidi-font-family:
+"Times New Roman"'><span style="mso-spacerun:yes">&nbsp; </span>ENDIF;<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:"Courier New";mso-bidi-font-family:
+"Times New Roman"'><span style="mso-spacerun:yes">&nbsp; </span>Varnames :=
+['Outputresults','Defaultname'];<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:"Courier New";mso-bidi-font-family:
+"Times New Roman"'><span style="mso-spacerun:yes">&nbsp; </span>Varpairs :=
+Varnames (EACH value Varnames);<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:"Courier New";mso-bidi-font-family:
+"Times New Roman"'><span style="mso-spacerun:yes">&nbsp; </span>SetVarPairs
+Varpairs;<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:"Courier New";mso-bidi-font-family:
+"Times New Roman"'>}<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:"Courier New";mso-bidi-font-family:
+"Times New Roman"'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:"Courier New";mso-bidi-font-family:
+"Times New Roman"'>Generate_simple_form;<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial;mso-bidi-font-family:"Times New Roman"'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal>The main routine of the Nial code in this case is <i
+style='mso-bidi-font-style:normal'>Generate_simple_form</i>. The first part of
+this routine sets up the value of <i style='mso-bidi-font-style:normal'>Outputresults</i>.
+The second part uses the suggested way of setting up the associations between
+names in the Nial code and names used in the special tags. The alternative
+would be to declare <i style='mso-bidi-font-style:normal'>Outputresults</i> as
+a NONLOCAL name in the routine. <i style='mso-bidi-font-style:normal'>Defaultname</i>
+is declared outside the routine and hence is global. The advantage of using the
+association list created by <i style='mso-bidi-font-style:normal'>SetVarPairs</i>
+is that it avoids the possibility that a name you are using interferes with a
+name used in the template processing code. The template code first looks in the
+association list. If the varname is not found there then it is queried as a
+Nial variable.</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>If the name of a Nial form file is given to <i
+style='mso-bidi-font-style:normal'>cginial</i> as its argument, then it is
+automatically<span style="mso-spacerun:yes">&nbsp; </span>processed using the
+process described below. An alternative approach is to use a Nial definition
+file that explicitly does the equivalent processing. The latter approach makes
+sense when you want one control program to determine which of several possible
+pages is to be displayed next.</p>
+
+<p class=MsoNormal><span style='font-family:Arial;mso-bidi-font-family:"Times New Roman"'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+style='font-family:Arial;mso-bidi-font-family:"Times New Roman"'><o:p>&nbsp;</o:p></span></b></p>
+
+<p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+style='font-family:Arial;mso-bidi-font-family:"Times New Roman"'>CGI-specific
+Routines</span></b><span style='font-family:Arial;mso-bidi-font-family:"Times New Roman"'><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial;mso-bidi-font-family:"Times New Roman"'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal>The cgi-library consists of a number of routines for
+assisting in dealing with Nial scripts triggered from CGI. It consists of two
+parts, a set of utility routines similar to the standard Perl file cgi-lib.pl
+used by many Perl CGI scripts, and a set of routines to do the Nial Form
+processing.<span style="mso-spacerun:yes">&nbsp; </span>The first part provides
+routines to assist in processing command line and environmental variables that
+form the arguments and parameters to CGI scripts. The entire library is built
+into CGI-Nial.</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><b style='mso-bidi-font-weight:normal'><o:p>&nbsp;</o:p></b></p>
+
+<p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+style='font-family:Arial;mso-bidi-font-family:"Times New Roman"'>Utility
+Routines</span></b><span style='font-family:Arial;mso-bidi-font-family:"Times New Roman"'><o:p></o:p></span></p>
+
+<p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+style='font-family:Arial;mso-bidi-font-family:"Times New Roman"'><o:p>&nbsp;</o:p></span></b></p>
+
+<p class=MsoNormal>The following is a summary of the utility routines defined
+in the cgi-libray included in CGI_Nial:</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal style='margin-left:70.9pt;text-indent:-70.9pt'><b
+style='mso-bidi-font-weight:normal'>Readparsecgiinput</b><span
+style='mso-tab-count:1'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></p>
+
+<p class=MsoNormal style='margin-left:70.9pt'>This expression extracts all CGI
+arguments regardless of their source and place them into an association list.<span
+style="mso-spacerun:yes">&nbsp; </span>It's result is a boolean indicating if
+there were any CGI variables actually processed.</p>
+
+<p class=MsoNormal style='margin-left:70.9pt;text-indent:-70.9pt'><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal style='margin-left:70.9pt;text-indent:-70.9pt'><b
+style='mso-bidi-font-weight:normal'>addkeyval Key Val</b><span
+style='mso-tab-count:1'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></p>
+
+<p class=MsoNormal style='margin-left:70.9pt'>This routine is used internally
+when building the association list for CGI arguments.<span
+style="mso-spacerun:yes">&nbsp; </span>It takes a string or phrase key and an
+arbitrary value, and stores them in the association list.<span
+style="mso-spacerun:yes">&nbsp; </span>If there is already a value for that
+key, then the new value is added to the existing value. The association list
+keeps the values for each key in a list.<span style="mso-spacerun:yes">&nbsp;
+</span>Under CGI control, the values will always be strings.</p>
+
+<p class=MsoNormal style='margin-left:70.9pt;text-indent:-70.9pt'><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal style='margin-left:70.9pt;text-indent:-70.9pt'><b
+style='mso-bidi-font-weight:normal'>getvals Key</b><span style='mso-tab-count:
+1'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>Looks up the name of the CGI
+variable Key (string or phrase) and returns the list of values associated with
+the supplied key.<span style="mso-spacerun:yes">&nbsp; </span>The result is
+always a list, possibly empty. The Key names do not distinguish case.</p>
+
+<p class=MsoNormal style='margin-left:70.9pt;text-indent:-70.9pt'><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal style='margin-left:70.9pt;text-indent:-70.9pt'><b
+style='mso-bidi-font-weight:normal'>Setup_globals</b><span style='mso-tab-count:
+1'>&nbsp;&nbsp; </span>Sets a few of the global variables used by the other
+routines. It should be called as the first action taken by a *.ndf file used as
+a CGI script. It is called automatically in processing a Nial form file.</p>
+
+<p class=MsoNormal style='margin-left:70.9pt;text-indent:-70.9pt'><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal style='margin-left:70.9pt;text-indent:-70.9pt'><b
+style='mso-bidi-font-weight:normal'>Printheader</b><span style='mso-tab-count:
+1'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>Prints the standard header to
+designate the file as an HTML content file to the output stream.<span
+style="mso-spacerun:yes">&nbsp; </span>This must be called before any output
+can be produced.<span style="mso-spacerun:yes">&nbsp; </span>(Otherwise your
+browser will report something like:<span style="mso-spacerun:yes">&nbsp;
+</span>&quot;No blank line separating header and contents&quot;). It is called
+automatically in processing a Nial form file.</p>
+
+<p class=MsoNormal style='margin-left:70.9pt;text-indent:-70.9pt'><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal style='margin-left:70.9pt;text-indent:-70.9pt'><b
+style='mso-bidi-font-weight:normal'>htmltop Title</b><span style='mso-tab-count:
+1'>&nbsp;&nbsp;&nbsp;&nbsp; </span>Prints the necessary HTML code to start an
+HTML page and give the provided Title (string or phrase).</p>
+
+<p class=MsoNormal style='margin-left:70.9pt;text-indent:-70.9pt'><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal style='margin-left:70.9pt;text-indent:-70.9pt'><span
+style="mso-spacerun:yes">&nbsp;</span><b style='mso-bidi-font-weight:normal'>Htmlbot</b><span
+style='mso-tab-count:1'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>Outputs
+the matching HTML code to the <i style='mso-bidi-font-style:normal'>HtmlTop</i><b
+style='mso-bidi-font-weight:normal'> </b>operation.</p>
+
+<p class=MsoNormal style='margin-left:70.9pt;text-indent:-70.9pt'><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal style='margin-left:70.9pt;text-indent:-70.9pt'><b
+style='mso-bidi-font-weight:normal'>Methget</b><span style='mso-tab-count:1'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>Returns
+true if the CGI script is running with the GET method (see CGI documentation).
+It is used internally in parsing the CGI variables.</p>
+
+<p class=MsoNormal style='margin-left:70.9pt;text-indent:-70.9pt'><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal style='margin-left:70.9pt;text-indent:-70.9pt'><b
+style='mso-bidi-font-weight:normal'>Methpost</b><span style='mso-tab-count:
+1'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>Returns true
+if the CGI script is running with the POST method (see CGI documentation). It
+is used internally in parsing the CGI variables.</p>
+
+<p class=MsoNormal style='margin-left:70.9pt;text-indent:-70.9pt'><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal style='margin-left:70.9pt;text-indent:-70.9pt'><b
+style='mso-bidi-font-weight:normal'>Mybaseurl</b><span style='mso-tab-count:
+1'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>Returns the base URL to
+this script.</p>
+
+<p class=MsoNormal style='margin-left:70.9pt;text-indent:-70.9pt'><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal style='margin-left:70.9pt;text-indent:-70.9pt'><b
+style='mso-bidi-font-weight:normal'>Myfullurl</b><span style='mso-tab-count:
+1'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>Returns the full URL
+to this script, including the argument string.</p>
+
+<p class=MsoNormal style='margin-left:70.9pt;text-indent:-70.9pt'><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal style='margin-left:70.9pt;text-indent:-70.9pt'><b
+style='mso-bidi-font-weight:normal'>Printvariables</b><span style='mso-tab-count:
+1'>&nbsp;&nbsp; </span>Displays all values in the CGI variable association
+list.</p>
+
+<p class=MsoNormal style='margin-left:70.9pt;text-indent:-70.9pt'><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal style='margin-left:70.9pt;text-indent:-70.9pt'><b
+style='mso-bidi-font-weight:normal'>Printenvvars</b><span style='mso-tab-count:
+1'>&nbsp;&nbsp;&nbsp;&nbsp; </span>Displays the current contents of the systems
+environmental variables at the time of script processing.</p>
+
+<p class=MsoNormal style='margin-left:70.9pt;text-indent:-70.9pt'><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal style='margin-left:70.9pt;text-indent:-70.9pt'><b
+style='mso-bidi-font-weight:normal'>cgierror Msg</b><span style='mso-tab-count:
+1'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>Used to return the string Msg as a
+fatal CGI error message to the caller.<span style="mso-spacerun:yes">&nbsp;
+</span>The user should close the output with <i style='mso-bidi-font-style:
+normal'>HtmlBot</i>.</p>
+
+<p class=MsoNormal style='margin-left:70.9pt;text-indent:-70.9pt'><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal style='margin-left:70.9pt;text-indent:-70.9pt'><b
+style='mso-bidi-font-weight:normal'>cgidie Msg</b><span style='mso-tab-count:
+1'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>Used to terminate the
+script after providing the caller with the string Msg.<span
+style="mso-spacerun:yes">&nbsp; </span></p>
+
+<p class=MsoNormal style='margin-left:1.0in'><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><b style='mso-bidi-font-weight:normal'>rowstohtml Tblrows
+Maxwidth<o:p></o:p></b></p>
+
+<p class=MsoNormal style='margin-left:1.0in'>Routine to take a list of list of
+strings representing the entries in a table and decorate them with HTML tags to
+create the table rows. Entries are truncated to length Maxwidth.</p>
+
+<p class=MsoNormal style='margin-left:1.0in'><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><b style='mso-bidi-font-weight:normal'>listtohtml A
+Bordersize<o:p></o:p></b></p>
+
+<p class=MsoNormal style='margin-left:1.0in'>Routine to generate an HTML table
+from a Nial list of lists of strings. It uses rowstohtml with Maxwidth = 80.
+Bordersize is used to indicate the width of the border, with 0 indicating no
+border.</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><b style='mso-bidi-font-weight:normal'>arraytohtml A
+Bordersize<o:p></o:p></b></p>
+
+<p class=MsoNormal style='margin-left:1.0in'>Routine to generate an HTML table
+from a Nial table of strings. It uses rowstohtml with Maxwidth = 80. Bordersize
+is used to indicate the width of the border, with 0 indicating no border.</p>
+
+<p class=MsoNormal style='margin-left:1.0in'><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal style='margin-left:1.0in'><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+style='font-family:Arial;mso-bidi-font-family:"Times New Roman"'>Nial Form
+processing Routines</span></b></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>The following is a summary of the routines defined in the
+cgi-library included in CGI-Nial that are used for Nial Form processing:</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><b style='mso-bidi-font-weight:normal'>get_template_value
+Name<o:p></o:p></b></p>
+
+<p class=MsoNormal style='margin-left:1.0in'>Gets the Nial array value
+associated with Name, first looking in the hidden Varpairs list and then, if
+not found, executing it as a Nial variable.</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><b style='mso-bidi-font-weight:normal'>setvarpairs Varpairs<o:p></o:p></b></p>
+
+<p class=MsoNormal style='margin-left:1.0in'>Stores the association list in a
+hidden variable.</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><b style='mso-bidi-font-weight:normal'>Process_template<o:p></o:p></b></p>
+
+<p class=MsoNormal style='margin-left:1.0in'>Processes the template replacing
+the special tagged fields with the corresponding Nial string or list of strings
+values. The reulst is the list of lines to be displayed.</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><b style='mso-bidi-font-weight:normal'>int_loaddefs Code<o:p></o:p></b></p>
+
+<p class=MsoNormal style='margin-left:1.0in'>Simulates a <i style='mso-bidi-font-style:
+normal'>loaddefs</i> from a list of lines. Code is a list of strings selected
+from the Nial Form file. The result is the HTML output needed to display the
+code and the results of execution. This is used in processing a form and by the
+demo that executes Nial code.</p>
+
+<p class=MsoNormal style='margin-left:1.0in'><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><b style='mso-bidi-font-weight:normal'><o:p>&nbsp;</o:p></b></p>
+
+<p class=MsoNormal><b style='mso-bidi-font-weight:normal'>process_form_file
+Filenm<o:p></o:p></b></p>
+
+<p class=MsoNormal style='margin-left:1.0in'>Does the processing to separate
+the Nial Form file, Filenm into its three sections, executes the Nial code and
+sets up debugging, logging or profiling information if requested. It returns
+the HTML Template to be processed.</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal style='margin-left:70.9pt;text-indent:-70.9pt'><b
+style='mso-bidi-font-weight:normal'>Process_script<span style='mso-tab-count:
+1'>&nbsp;&nbsp;&nbsp; </span></b>Routine called internally by CGI-Nial to
+process a Nial form file provided as the argument to <i style='mso-bidi-font-style:
+normal'>cginial</i>.</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><span style='font-family:Arial;mso-bidi-font-family:"Times New Roman"'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+style='font-family:Arial;mso-bidi-font-family:"Times New Roman"'>CGI-Nial on
+Windows Systems</span></b><span style='font-family:Arial;mso-bidi-font-family:
+"Times New Roman"'><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial;mso-bidi-font-family:"Times New Roman"'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal>To run Nial scripts on Windows Systems, you must first
+create an <i style='mso-bidi-font-style:normal'>Association</i> between a
+particular extension and an executable.<span style="mso-spacerun:yes">&nbsp;
+</span>In this case the extension should be &quot;.ndf&quot; and the executable
+should be the CGINIAL.EXE file.<span style="mso-spacerun:yes">&nbsp;
+</span>Additionally, a similar association between &quot;*.nws&quot; files and
+CGINIAL.EXE can be made, and you will then be able to execute workspaces.<span
+style="mso-spacerun:yes">&nbsp; </span>Most Windows based Web Severs rely on
+associations to launch applications. The install program provided with the Nial
+Tools sets up these associations.</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>Some of the details of how this works are very dependent on
+the particular Web Server that is running.</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><span style='font-family:Arial;mso-bidi-font-family:"Times New Roman"'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+style='font-family:Arial;mso-bidi-font-family:"Times New Roman"'>CGI-Nial on
+Unix Systems</span></b><span style='font-family:Arial;mso-bidi-font-family:
+"Times New Roman"'><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial;mso-bidi-font-family:"Times New Roman"'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal>Unix systems don't have file association, by they do allow
+executable scripts to identify the command processor to run on the contents of
+the script. The following is an example of what a Nial script should look like
+on a typical Unix system.<span style="mso-spacerun:yes">&nbsp; </span>It is
+critical that there is no space between the first two lines.<span
+style="mso-spacerun:yes">&nbsp;&nbsp; </span>The &quot;#&quot; on the first
+line will been seen as a comment by the Nial interpreter, and the remainder of
+the file can be normal Nial code.</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>The file must have the extension &quot;.ndf&quot;<span
+style="mso-spacerun:yes">&nbsp; </span>or “.nfm” and must have its execute bit
+set (ie. chmod +x xxx.ndf).</p>
+
+<p class=MsoNormal><span style='font-family:Arial;mso-bidi-font-family:"Times New Roman"'><o:p>&nbsp;</o:p></span></p>
+
+<b style='mso-bidi-font-weight:normal'><span style='font-size:10.0pt;
+font-family:Arial;mso-fareast-font-family:"Times New Roman";mso-bidi-font-family:
+"Times New Roman";mso-ansi-language:EN-US;mso-fareast-language:EN-US;
+mso-bidi-language:AR-SA'><br clear=all style='page-break-before:always'>
+</span></b>
+
+<p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+style='font-family:Arial;mso-bidi-font-family:"Times New Roman"'>Example Unix
+Nial script</span></b><span style='font-family:Arial;mso-bidi-font-family:"Times New Roman"'><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial;mso-bidi-font-family:"Times New Roman"'><o:p>&nbsp;</o:p></span></p>
+
+<div style='mso-element:para-border-div;border:solid windowtext 2.25pt;
+padding:1.0pt 1.0pt 1.0pt 1.0pt'>
+
+<p class=MsoNormal style='border:none;mso-border-alt:solid windowtext 2.25pt;
+padding:0in;mso-padding-alt:1.0pt 1.0pt 1.0pt 1.0pt'><span style='font-family:
+"Courier New";mso-bidi-font-family:"Times New Roman"'>#!/bin/csh<o:p></o:p></span></p>
+
+<p class=MsoNormal style='border:none;mso-border-alt:solid windowtext 2.25pt;
+padding:0in;mso-padding-alt:1.0pt 1.0pt 1.0pt 1.0pt'><span style='font-family:
+"Courier New";mso-bidi-font-family:"Times New Roman"'>exec
+/usr/local/bin/cginial $0 $argv[*]<o:p></o:p></span></p>
+
+<p class=MsoNormal style='border:none;mso-border-alt:solid windowtext 2.25pt;
+padding:0in;mso-padding-alt:1.0pt 1.0pt 1.0pt 1.0pt'><span style='font-family:
+"Courier New";mso-bidi-font-family:"Times New Roman"'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='border:none;mso-border-alt:solid windowtext 2.25pt;
+padding:0in;mso-padding-alt:1.0pt 1.0pt 1.0pt 1.0pt'><span style='font-family:
+"Courier New";mso-bidi-font-family:"Times New Roman"'>%-- Set up the global
+variables;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='border:none;mso-border-alt:solid windowtext 2.25pt;
+padding:0in;mso-padding-alt:1.0pt 1.0pt 1.0pt 1.0pt'><span style='font-family:
+"Courier New";mso-bidi-font-family:"Times New Roman"'>Setup_globals;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='border:none;mso-border-alt:solid windowtext 2.25pt;
+padding:0in;mso-padding-alt:1.0pt 1.0pt 1.0pt 1.0pt'><span style='font-family:
+"Courier New";mso-bidi-font-family:"Times New Roman"'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='border:none;mso-border-alt:solid windowtext 2.25pt;
+padding:0in;mso-padding-alt:1.0pt 1.0pt 1.0pt 1.0pt'><span style='font-family:
+"Courier New";mso-bidi-font-family:"Times New Roman"'>%-- Printout the standard
+header/content info;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='border:none;mso-border-alt:solid windowtext 2.25pt;
+padding:0in;mso-padding-alt:1.0pt 1.0pt 1.0pt 1.0pt'><span style='font-family:
+"Courier New";mso-bidi-font-family:"Times New Roman"'>Printheader;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='border:none;mso-border-alt:solid windowtext 2.25pt;
+padding:0in;mso-padding-alt:1.0pt 1.0pt 1.0pt 1.0pt'><span style='font-family:
+"Courier New";mso-bidi-font-family:"Times New Roman"'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='border:none;mso-border-alt:solid windowtext 2.25pt;
+padding:0in;mso-padding-alt:1.0pt 1.0pt 1.0pt 1.0pt'><span style='font-family:
+"Courier New";mso-bidi-font-family:"Times New Roman"'>%-- Process the CGI
+Arguments;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='border:none;mso-border-alt:solid windowtext 2.25pt;
+padding:0in;mso-padding-alt:1.0pt 1.0pt 1.0pt 1.0pt'><span style='font-family:
+"Courier New";mso-bidi-font-family:"Times New Roman"'>Readparsecginput;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='border:none;mso-border-alt:solid windowtext 2.25pt;
+padding:0in;mso-padding-alt:1.0pt 1.0pt 1.0pt 1.0pt'><span style='font-family:
+"Courier New";mso-bidi-font-family:"Times New Roman"'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='border:none;mso-border-alt:solid windowtext 2.25pt;
+padding:0in;mso-padding-alt:1.0pt 1.0pt 1.0pt 1.0pt'><span style='font-family:
+"Courier New";mso-bidi-font-family:"Times New Roman"'>%-- Output the basic HTML
+title info;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='border:none;mso-border-alt:solid windowtext 2.25pt;
+padding:0in;mso-padding-alt:1.0pt 1.0pt 1.0pt 1.0pt'><span style='font-family:
+"Courier New";mso-bidi-font-family:"Times New Roman"'>htmltop 'NIAL CGI Test';<o:p></o:p></span></p>
+
+<p class=MsoNormal style='border:none;mso-border-alt:solid windowtext 2.25pt;
+padding:0in;mso-padding-alt:1.0pt 1.0pt 1.0pt 1.0pt'><span style='font-family:
+"Courier New";mso-bidi-font-family:"Times New Roman"'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='border:none;mso-border-alt:solid windowtext 2.25pt;
+padding:0in;mso-padding-alt:1.0pt 1.0pt 1.0pt 1.0pt'><span style='font-family:
+"Courier New";mso-bidi-font-family:"Times New Roman"'>%-- Let's display the
+variables that were passed to this script;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='border:none;mso-border-alt:solid windowtext 2.25pt;
+padding:0in;mso-padding-alt:1.0pt 1.0pt 1.0pt 1.0pt'><span style='font-family:
+"Courier New";mso-bidi-font-family:"Times New Roman"'>Printvariables;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='border:none;mso-border-alt:solid windowtext 2.25pt;
+padding:0in;mso-padding-alt:1.0pt 1.0pt 1.0pt 1.0pt'><span style='font-family:
+"Courier New";mso-bidi-font-family:"Times New Roman"'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='border:none;mso-border-alt:solid windowtext 2.25pt;
+padding:0in;mso-padding-alt:1.0pt 1.0pt 1.0pt 1.0pt'><span style='font-family:
+"Courier New";mso-bidi-font-family:"Times New Roman"'>%-- Print Environmental
+Variable (lots'o'stuff);<o:p></o:p></span></p>
+
+<p class=MsoNormal style='border:none;mso-border-alt:solid windowtext 2.25pt;
+padding:0in;mso-padding-alt:1.0pt 1.0pt 1.0pt 1.0pt'><span style='font-family:
+"Courier New";mso-bidi-font-family:"Times New Roman"'>Printenv;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='border:none;mso-border-alt:solid windowtext 2.25pt;
+padding:0in;mso-padding-alt:1.0pt 1.0pt 1.0pt 1.0pt'><span style='font-family:
+"Courier New";mso-bidi-font-family:"Times New Roman"'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='border:none;mso-border-alt:solid windowtext 2.25pt;
+padding:0in;mso-padding-alt:1.0pt 1.0pt 1.0pt 1.0pt'><span style='font-family:
+"Courier New";mso-bidi-font-family:"Times New Roman"'>%-- talk to the user a
+little bit;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='border:none;mso-border-alt:solid windowtext 2.25pt;
+padding:0in;mso-padding-alt:1.0pt 1.0pt 1.0pt 1.0pt'><span style='font-family:
+"Courier New";mso-bidi-font-family:"Times New Roman"'>writescreen 'Checking for
+code&lt;br&gt;';<o:p></o:p></span></p>
+
+<p class=MsoNormal style='border:none;mso-border-alt:solid windowtext 2.25pt;
+padding:0in;mso-padding-alt:1.0pt 1.0pt 1.0pt 1.0pt'><span style='font-family:
+"Courier New";mso-bidi-font-family:"Times New Roman"'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='border:none;mso-border-alt:solid windowtext 2.25pt;
+padding:0in;mso-padding-alt:1.0pt 1.0pt 1.0pt 1.0pt'><span style='font-family:
+"Courier New";mso-bidi-font-family:"Times New Roman"'>%-- Extract the CGI
+variable &quot;code&quot;, if available;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='border:none;mso-border-alt:solid windowtext 2.25pt;
+padding:0in;mso-padding-alt:1.0pt 1.0pt 1.0pt 1.0pt'><span style='font-family:
+"Courier New";mso-bidi-font-family:"Times New Roman"'>Code := getvals 'code';<o:p></o:p></span></p>
+
+<p class=MsoNormal style='border:none;mso-border-alt:solid windowtext 2.25pt;
+padding:0in;mso-padding-alt:1.0pt 1.0pt 1.0pt 1.0pt'><span style='font-family:
+"Courier New";mso-bidi-font-family:"Times New Roman"'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='border:none;mso-border-alt:solid windowtext 2.25pt;
+padding:0in;mso-padding-alt:1.0pt 1.0pt 1.0pt 1.0pt'><span style='font-family:
+"Courier New";mso-bidi-font-family:"Times New Roman"'>%-- If we find something
+in the variable, then execute with Nial;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='border:none;mso-border-alt:solid windowtext 2.25pt;
+padding:0in;mso-padding-alt:1.0pt 1.0pt 1.0pt 1.0pt'><span style='font-family:
+"Courier New";mso-bidi-font-family:"Times New Roman"'>IF not empty Code THEN<o:p></o:p></span></p>
+
+<p class=MsoNormal style='border:none;mso-border-alt:solid windowtext 2.25pt;
+padding:0in;mso-padding-alt:1.0pt 1.0pt 1.0pt 1.0pt'><span style='font-family:
+"Courier New";mso-bidi-font-family:"Times New Roman"'><span
+style="mso-spacerun:yes">&nbsp; </span>writescreen '&lt;PRE&gt;';<o:p></o:p></span></p>
+
+<p class=MsoNormal style='border:none;mso-border-alt:solid windowtext 2.25pt;
+padding:0in;mso-padding-alt:1.0pt 1.0pt 1.0pt 1.0pt'><span style='font-family:
+"Courier New";mso-bidi-font-family:"Times New Roman"'><span
+style="mso-spacerun:yes">&nbsp; </span>writescreen<span
+style="mso-spacerun:yes">&nbsp; </span>picture execute first code;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='border:none;mso-border-alt:solid windowtext 2.25pt;
+padding:0in;mso-padding-alt:1.0pt 1.0pt 1.0pt 1.0pt'><span style='font-family:
+"Courier New";mso-bidi-font-family:"Times New Roman"'><span
+style="mso-spacerun:yes">&nbsp; </span>writescreen '&lt;/PRE&gt;';<o:p></o:p></span></p>
+
+<p class=MsoNormal style='border:none;mso-border-alt:solid windowtext 2.25pt;
+padding:0in;mso-padding-alt:1.0pt 1.0pt 1.0pt 1.0pt'><span style='font-family:
+"Courier New";mso-bidi-font-family:"Times New Roman"'>ELSE<o:p></o:p></span></p>
+
+<p class=MsoNormal style='border:none;mso-border-alt:solid windowtext 2.25pt;
+padding:0in;mso-padding-alt:1.0pt 1.0pt 1.0pt 1.0pt'><span style='font-family:
+"Courier New";mso-bidi-font-family:"Times New Roman"'><span
+style="mso-spacerun:yes">&nbsp; </span>writescreen 'No Code to
+execute&lt;br&gt;';<o:p></o:p></span></p>
+
+<p class=MsoNormal style='border:none;mso-border-alt:solid windowtext 2.25pt;
+padding:0in;mso-padding-alt:1.0pt 1.0pt 1.0pt 1.0pt'><span style='font-family:
+"Courier New";mso-bidi-font-family:"Times New Roman"'>ENDIF;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='border:none;mso-border-alt:solid windowtext 2.25pt;
+padding:0in;mso-padding-alt:1.0pt 1.0pt 1.0pt 1.0pt'><span style='font-family:
+"Courier New";mso-bidi-font-family:"Times New Roman"'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='border:none;mso-border-alt:solid windowtext 2.25pt;
+padding:0in;mso-padding-alt:1.0pt 1.0pt 1.0pt 1.0pt'><span style='font-family:
+"Courier New";mso-bidi-font-family:"Times New Roman"'>%-- Clean out the HTML
+output;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='border:none;mso-border-alt:solid windowtext 2.25pt;
+padding:0in;mso-padding-alt:1.0pt 1.0pt 1.0pt 1.0pt'><span style='font-family:
+"Courier New";mso-bidi-font-family:"Times New Roman"'>Htmlbot;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='border:none;mso-border-alt:solid windowtext 2.25pt;
+padding:0in;mso-padding-alt:1.0pt 1.0pt 1.0pt 1.0pt'><span style='font-family:
+"Courier New";mso-bidi-font-family:"Times New Roman"'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='border:none;mso-border-alt:solid windowtext 2.25pt;
+padding:0in;mso-padding-alt:1.0pt 1.0pt 1.0pt 1.0pt'><span style='font-family:
+"Courier New";mso-bidi-font-family:"Times New Roman"'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='border:none;mso-border-alt:solid windowtext 2.25pt;
+padding:0in;mso-padding-alt:1.0pt 1.0pt 1.0pt 1.0pt'><span style='font-family:
+"Courier New";mso-bidi-font-family:"Times New Roman"'>Bye</span><span
+style='font-family:Arial;mso-bidi-font-family:"Times New Roman"'><span
+style="mso-spacerun:yes">&nbsp;&nbsp; </span><o:p></o:p></span></p>
+
+</div>
+
+<p class=MsoNormal><span style='font-family:Arial;mso-bidi-font-family:"Times New Roman"'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial;mso-bidi-font-family:"Times New Roman"'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal>NOTE: The above example works under both Unix and Windows
+95/NT.<span style="mso-spacerun:yes">&nbsp; </span>In the latter case the first
+line is not interpreted by the operating system and is treated as a <i
+style='mso-bidi-font-style:normal'>remark</i> by CGI-Nial.</p>
+
+<p class=MsoNormal><span style='font-family:Arial;mso-bidi-font-family:"Times New Roman"'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial;mso-bidi-font-family:"Times New Roman"'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+style='font-family:Arial;mso-bidi-font-family:"Times New Roman"'>Routines to
+support Persistence</span></b><span style='font-family:Arial;mso-bidi-font-family:
+"Times New Roman"'><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:Arial;mso-bidi-font-family:"Times New Roman"'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal>The following routines are part of the CGI Library to
+support persistence of data between frames. These allow the direct storage of
+Nial data in binary files that only survive for one data exchange.</p>
+
+<p class=MsoNormal>The routines are:</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><b style='mso-bidi-font-weight:normal'>Uniqueno<span
+style='mso-tab-count:1'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><o:p></o:p></b></p>
+
+<p class=MsoNormal style='text-indent:.5in'>generates a unique integer used in
+the name the temporary file.</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><b style='mso-bidi-font-weight:normal'>reset_uniqueno
+Startno</b></p>
+
+<p class=MsoNormal><span style='mso-tab-count:1'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>resets
+the unique number to the give start number.</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><b style='mso-bidi-font-weight:normal'>deletefile Filenm</b></p>
+
+<p class=MsoNormal><span style='mso-tab-count:1'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>deletes
+the named file using the appropriate file command for the system.</p>
+
+<div style='mso-element:para-border-div;border:none;border-bottom:solid windowtext 1.0pt;
+mso-border-bottom-alt:solid windowtext .75pt;padding:0in 0in 30.0pt 0in'>
+
+<p class=MsoNormal style='border:none;mso-border-bottom-alt:solid windowtext .75pt;
+padding:0in;mso-padding-alt:0in 0in 30.0pt 0in'><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal style='border:none;mso-border-bottom-alt:solid windowtext .75pt;
+padding:0in;mso-padding-alt:0in 0in 30.0pt 0in'><b style='mso-bidi-font-weight:
+normal'>buildpersistentstore Varnames Vals<o:p></o:p></b></p>
+
+<p class=MsoNormal style='text-indent:.5in;border:none;mso-border-bottom-alt:
+solid windowtext .75pt;padding:0in;mso-padding-alt:0in 0in 30.0pt 0in'>creates
+a unique filename and stores the names and values given as the arguments.</p>
+
+<p class=MsoNormal style='text-indent:.5in;border:none;mso-border-bottom-alt:
+solid windowtext .75pt;padding:0in;mso-padding-alt:0in 0in 30.0pt 0in'>Returns
+the unique filename. This is usually passed as a hidden variable in the form.<b
+style='mso-bidi-font-weight:normal'><o:p></o:p></b></p>
+
+<p class=MsoNormal style='border:none;mso-border-bottom-alt:solid windowtext .75pt;
+padding:0in;mso-padding-alt:0in 0in 30.0pt 0in'><b style='mso-bidi-font-weight:
+normal'><o:p>&nbsp;</o:p></b></p>
+
+<p class=MsoNormal style='border:none;mso-border-bottom-alt:solid windowtext .75pt;
+padding:0in;mso-padding-alt:0in 0in 30.0pt 0in'><b style='mso-bidi-font-weight:
+normal'>extractpersistentstore Filename</b></p>
+
+<p class=MsoNormal style='text-indent:.5in;border:none;mso-border-bottom-alt:
+solid windowtext .75pt;padding:0in;mso-padding-alt:0in 0in 30.0pt 0in'>reads
+the names and values of the variables from the named file, returns them as a
+pair of lists</p>
+
+<p class=MsoNormal style='text-indent:.5in;border:none;mso-border-bottom-alt:
+solid windowtext .75pt;padding:0in;mso-padding-alt:0in 0in 30.0pt 0in'>and
+deletes the named file.</p>
+
+<p class=MsoNormal style='text-indent:.5in;border:none;mso-border-bottom-alt:
+solid windowtext .75pt;padding:0in;mso-padding-alt:0in 0in 30.0pt 0in'><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal style='text-indent:.5in;border:none;mso-border-bottom-alt:
+solid windowtext .75pt;padding:0in;mso-padding-alt:0in 0in 30.0pt 0in'><span
+style='font-family:Arial;mso-bidi-font-family:"Times New Roman"'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='border:none;mso-border-bottom-alt:solid windowtext .75pt;
+padding:0in;mso-padding-alt:0in 0in 30.0pt 0in'><b style='mso-bidi-font-weight:
+normal'><span style='font-family:Arial;mso-bidi-font-family:"Times New Roman"'>Creating
+a CGI-NIAL based application<o:p></o:p></span></b></p>
+
+<p class=MsoNormal style='border:none;mso-border-bottom-alt:solid windowtext .75pt;
+padding:0in;mso-padding-alt:0in 0in 30.0pt 0in'><b style='mso-bidi-font-weight:
+normal'><o:p>&nbsp;</o:p></b></p>
+
+<p class=MsoNormal style='border:none;mso-border-bottom-alt:solid windowtext .75pt;
+padding:0in;mso-padding-alt:0in 0in 30.0pt 0in'>The development of a Web
+application requires the design and management of a number of HTML pages. For
+pages that just display static data, or which contain only links to other
+pages, the HTML for the page can be created once and stored for subsequent use.
+However, for applications in which Web technology is being used to access data
+dynamically, or in which computations are being done on request, the response
+to a request is HTML text that includes a mixture of static text and dynamic
+data.</p>
+
+<p class=MsoNormal style='border:none;mso-border-bottom-alt:solid windowtext .75pt;
+padding:0in;mso-padding-alt:0in 0in 30.0pt 0in'><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal style='border:none;mso-border-bottom-alt:solid windowtext .75pt;
+padding:0in;mso-padding-alt:0in 0in 30.0pt 0in'>CGI-Nial can be used to build
+such Web applications. There are several issues that arise in attempting to
+build such applications using CGI-Nial. First, the flow of control between the
+pages has to be managed. Nial Systems Limited has built sample applications
+using two different ways to handle the passing of control between pages. A
+discussion of these techniques is given below. Second, techniques have to be
+found to handle data flow between pages. We have experimented with two
+approaches for data flow: using hidden input variables in the forms, and achieving
+persistent data using temporary Nial data files. The former is reasonable for
+scalar data items, but complicates the design of the forms. The latter is
+necessary if the data objects are large because of arbitrary space limitations
+within Web servers.</p>
+
+<p class=MsoNormal style='border:none;mso-border-bottom-alt:solid windowtext .75pt;
+padding:0in;mso-padding-alt:0in 0in 30.0pt 0in'><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal style='border:none;mso-border-bottom-alt:solid windowtext .75pt;
+padding:0in;mso-padding-alt:0in 0in 30.0pt 0in'><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal style='border:none;mso-border-bottom-alt:solid windowtext .75pt;
+padding:0in;mso-padding-alt:0in 0in 30.0pt 0in'><b style='mso-bidi-font-weight:
+normal'><span style='font-family:Arial;mso-bidi-font-family:"Times New Roman"'>Explicit
+Control Flow</span></b><span style='font-family:Arial;mso-bidi-font-family:
+"Times New Roman"'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='border:none;mso-border-bottom-alt:solid windowtext .75pt;
+padding:0in;mso-padding-alt:0in 0in 30.0pt 0in'><span style='font-family:Arial;
+mso-bidi-font-family:"Times New Roman"'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='border:none;mso-border-bottom-alt:solid windowtext .75pt;
+padding:0in;mso-padding-alt:0in 0in 30.0pt 0in'>In the Business Rules demo and
+the Table Query demo accessible on the NSL home page at www.nial.com, the
+control of flow is centrally managed. The <i style='mso-bidi-font-style:normal'>action</i>
+associated with each form is a single Nial definition file. It loads all the
+required definitions, and selects which Nial form file to process based on a
+“FROM” variable that is encoded in each page as a hidden variable. This
+approach allows the control flow management code to decide between alternatives
+based on data values passed from the previous form. Since a single Nial
+definition file is used, it can be replaced by a Nial workspace with a Latent
+expression. This provides slightly faster processing and privacy of the
+application code.<span style="mso-spacerun:yes">&nbsp; </span>For this approach
+the calls to the routines that process the Nial form files and the templates is
+included in the central definition file.</p>
+
+<p class=MsoNormal style='border:none;mso-border-bottom-alt:solid windowtext .75pt;
+padding:0in;mso-padding-alt:0in 0in 30.0pt 0in'><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal style='border:none;mso-border-bottom-alt:solid windowtext .75pt;
+padding:0in;mso-padding-alt:0in 0in 30.0pt 0in'><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal style='border:none;mso-border-bottom-alt:solid windowtext .75pt;
+padding:0in;mso-padding-alt:0in 0in 30.0pt 0in'><b style='mso-bidi-font-weight:
+normal'><span style='font-family:Arial;mso-bidi-font-family:"Times New Roman"'>Implicit
+Control Flow</span></b><span style='font-family:Arial;mso-bidi-font-family:
+"Times New Roman"'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='border:none;mso-border-bottom-alt:solid windowtext .75pt;
+padding:0in;mso-padding-alt:0in 0in 30.0pt 0in'><span style='font-family:Arial;
+mso-bidi-font-family:"Times New Roman"'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='border:none;mso-border-bottom-alt:solid windowtext .75pt;
+padding:0in;mso-padding-alt:0in 0in 30.0pt 0in'>In the Bug List application,
+there is no central control. Each Nial form file has either links to other
+pages or has explicit ACTION values that trigger the next page. In this
+application, since no choice points are needed, the flow of control can be
+handled by each form setting its action to be the next logical form. For simple
+applications with only one or two pages this is a reasonable approach. One
+advantage of using Nial forms directly is that the processing of the form and
+the template are done automatically.</p>
+
+</div>
+
+<div style='mso-element:para-border-div;border:none;border-bottom:solid windowtext 1.0pt;
+mso-border-bottom-alt:solid windowtext .75pt;padding:0in 0in 31.0pt 0in'>
+
+<p class=MsoNormal style='border:none;mso-border-bottom-alt:solid windowtext .75pt;
+padding:0in;mso-padding-alt:0in 0in 31.0pt 0in'><b style='mso-bidi-font-weight:
+normal'><span style='font-family:Arial;mso-bidi-font-family:"Times New Roman"'>Data
+Flow by Hidden Variables<o:p></o:p></span></b></p>
+
+<p class=MsoNormal style='border:none;mso-border-bottom-alt:solid windowtext .75pt;
+padding:0in;mso-padding-alt:0in 0in 31.0pt 0in'><b style='mso-bidi-font-weight:
+normal'><span style='font-family:Arial;mso-bidi-font-family:"Times New Roman"'><o:p>&nbsp;</o:p></span></b></p>
+
+<p class=MsoNormal style='border:none;mso-border-bottom-alt:solid windowtext .75pt;
+padding:0in;mso-padding-alt:0in 0in 31.0pt 0in'>In the two demos accessible
+from the NSL home page, the data computed in the processing of one form is
+passed to the next form by storing it in hidden input variables in the form.
+This is a mechanism provided by HTML and CGI to pass information between the
+client and server processes. The values are passed in either GET mode or POST
+mode. In GET mode, they are visible in the command line argument that is
+displayed by a browser during a client request. In POST mode they are hidden
+from view. The biggest drawback of using hidden variables for data flow is the
+arbitrary size limitation imposed by some Web Browsers and the computational
+effort to parse arbitrarily long parameter lists.</p>
+
+<p class=MsoNormal style='border:none;mso-border-bottom-alt:solid windowtext .75pt;
+padding:0in;mso-padding-alt:0in 0in 31.0pt 0in'><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal style='border:none;mso-border-bottom-alt:solid windowtext .75pt;
+padding:0in;mso-padding-alt:0in 0in 31.0pt 0in'><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal style='border:none;mso-border-bottom-alt:solid windowtext .75pt;
+padding:0in;mso-padding-alt:0in 0in 31.0pt 0in'><b style='mso-bidi-font-weight:
+normal'><span style='font-family:Arial;mso-bidi-font-family:"Times New Roman"'>Data
+Flow by Persistent Files</span></b><span style='font-family:Arial;mso-bidi-font-family:
+"Times New Roman"'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='border:none;mso-border-bottom-alt:solid windowtext .75pt;
+padding:0in;mso-padding-alt:0in 0in 31.0pt 0in'><span style='font-family:Arial;
+mso-bidi-font-family:"Times New Roman"'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='border:none;mso-border-bottom-alt:solid windowtext .75pt;
+padding:0in;mso-padding-alt:0in 0in 31.0pt 0in'>In the Bug List application the
+textual information stored to describe a problem can be of arbitrary size. We
+found it convenient to provide a mechanism to have one Nial form file store a
+set of variables when processed and to have a subsequent form file retrieve
+them when processed. Two routines to do this are provided. When the data is
+extracted the temporary files are deleted.</p>
+
+<p class=MsoNormal style='border:none;mso-border-bottom-alt:solid windowtext .75pt;
+padding:0in;mso-padding-alt:0in 0in 31.0pt 0in'><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal style='border:none;mso-border-bottom-alt:solid windowtext .75pt;
+padding:0in;mso-padding-alt:0in 0in 31.0pt 0in'><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal style='border:none;mso-border-bottom-alt:solid windowtext .75pt;
+padding:0in;mso-padding-alt:0in 0in 31.0pt 0in'><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal style='border:none;mso-border-bottom-alt:solid windowtext .75pt;
+padding:0in;mso-padding-alt:0in 0in 31.0pt 0in'><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal style='border:none;mso-border-bottom-alt:solid windowtext .75pt;
+padding:0in;mso-padding-alt:0in 0in 31.0pt 0in'><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal style='border:none;mso-border-bottom-alt:solid windowtext .75pt;
+padding:0in;mso-padding-alt:0in 0in 31.0pt 0in'><o:p>&nbsp;</o:p></p>
+
+</div>
+
+</div>
+
+</body>
+
+</html>

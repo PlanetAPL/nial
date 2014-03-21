@@ -1,0 +1,474 @@
+                    Notebook for Testing Q`Nial
+
+       Version: _____________________________________
+
+       System: ______________________________________
+
+       Date:   ______________________________________
+
+
+The directory "v6testing" contains a suite of programs for testing Q'Nial.
+This is run by moving a copy of nial, debug_nial and the initial
+subdirectory into a copy of the testing directory. Then follow the directions
+given below recording what tests have been done and any unexpected
+results.
+
+AUTOMATED TESTING:
+
+
+Run the program: autotest
+
+    It will execute 6 Nial programs:
+      autoids
+      autoops
+      autoeval
+      autopic
+      autocov
+      autorand
+
+Each of these except the last produces a .log file that indicates what tests
+have been done. It should indicate at the end that the test has been completed.
+If any errors have been encountered a corresponding .out file is produced which
+records the problem encountered. For autorand it is possible that an overflow 
+will cause a jump to top level causing a restarting message.
+
+      Program		Completed	Errors
+
+      autoids		_________	______
+
+      autoops		_________	______
+
+      autoeval		_________	______
+
+      autopic		_________	______
+
+      autocov		_________	______
+
+      autorand		_________	______
+
+
+SUPPORTED TESTING:
+
+
+The following files support some feature testing. Each file contains some
+information on what it is testing at the top. 
+Instructions for testing are below.
+
+	FILE				PURPOSE
+	chopheap.ndf	check system behaviour with heap fragmentation
+	filechk.ndf	check the semantics of direct and sequential files
+	parserr.ndf	attempt to produce all parse errors
+	parse2.ndf	checks difficult parser problems
+	stack.ndf		check the depth of recursive calls and behaviour when
+				the C stack fails
+	tracetes.ndf   test the tracing mechanism.
+	wsfull.ndf	force the workspace full mechanism to ensure it recovers
+
+
+
+1. chopheap.ndf
+
+Start Q'Nial using the command:
+by
+         nial +size 100000 -defs chopheap
+
+
+This will run a loop that will halt with a message about workspace full. Reply
+yes until no further variables are created. Then when you reply no the system
+will exit saying "insufficient space to recover".
+Try this with various sizes including the largest size in which you can get
+Q'Nial to run.
+Note that the status is printed on each time around the loop.
+Its third entry giving the number of entries in the free list increases
+as fragmentation occurs.
+
+A second test should be run with an expanding workspace. Start with just the
+command 
+	nial
+and repeat the above. 
+
+Fixed size ws test done:  ____________________________________
+
+Expanding ws test done:   ____________________________________
+
+
+
+2.  filechk.ndf	
+
+Start Q'Nial with
+       nial -s
+and
+       loaddefs "filechk 
+
+Type:
+    seqfiletest
+It should run to completion and announce:
+    sequential access file tests are complete
+
+Type:
+    directfiletest
+It should run to completion and announce:
+    direct access file tests are complete
+
+Type:
+    putgettest
+It should run to completion and announce:
+    getfile and putfile tests completed
+
+There will be some host messages concerning files f1.* and f2.* which can
+be ignored.
+
+seqfiletest done:     ____________________________________
+
+directfiletest done:  ____________________________________
+
+putgettest done:      ____________________________________
+
+
+3.  parserr.ndf	
+
+This program has to be run with a Q'Nial created with DEBUG on. It's
+purpose is to ensure that a correct recovery is made after every
+parse error. There are some error calls in the code that do not
+appear to be reachable. These are noted in the test.
+
+Start Q'Nial with
+	debug_nial 
+and
+	loaddefs "parserr l
+
+Examine the file auto.nlg to see that all the errors match the corresponding
+comments in error number. There should be 78 errors found. Over the run
+approximately 242 words of available space is used up in symbol table
+entries.
+
+parserr test done:  _________________________________________
+
+
+4.  parse2.ndf	
+
+The purpose of this program is to ensure that certain difficult parsing
+situations associated with parser backup are being handled correctly.
+The output message should match the comments in the file.
+
+Start Q'Nial with
+	nial -s
+and
+	loaddefs "parse2 l
+
+Examine the file auto.nlg to see that all the errors match the corresponding
+comments above the entry. There should be 52 errors found.
+
+
+parse2 test done:  _________________________________________
+
+
+5. stack.ndf
+
+The purpose of this file is to test the depth of recursion available in
+Q'Nial and to look for problems associated with reaching a too deep
+recursion. 
+
+The first test determines the maximum recursion allowed.
+
+Start Q'Nial with 
+	nial
+and
+	loaddefs"stack
+	deeprecuniarecur 1
+
+The computation will terminate either by jumping to top level with a 
+stack overflow warning or will terminate Q'Nial with a segmentation fault, 
+depending on the version. (The cost of checking stack overflow is high on 
+some systems, but usually these are ones that support a very deep stack.)
+
+recur test:
+
+       depth ________________   termination ______________________
+
+
+The second test checks that recovery is possible to the depth found
+in the first test. If the first test has failed to to segmentation 
+fault. The actual useable depth may be slightly different.
+
+Start Q'Nial with 
+	nial
+and
+	loaddefs"stack
+	recur_n  1 <probe>
+
+where <probe> is chosen close to but below the depth found in the
+previous test. On some systems it can actually go a little higher.
+Repeat the testing increasing the probe until a jump to top level
+occurs.
+
+recur_n test:
+
+       deepest successful probe  ________________ 
+
+
+6. tracetes.ndf
+
+The purpose of this test is to ensure that the tracing mechanism is working
+as expected.
+
+Start Q'Nial with 
+	nial -b
+and
+	loaddefs"tracetest l
+
+The results will be placed in the auto.nlg file which should be examined
+to see that the tracing has been turned on and of as indicated in the
+comments in the file. The -b forces the use of ASCII boxing characters.
+
+trace test:  _____________________________________________
+
+
+7. wsfull.ndf
+
+This test is similar to the chopheap test in that it generates random
+arrays and assigns them to variables to fill the workspace. However,
+the emphasis is on more normal use of the workspace since it does not
+deliberately create fragmentation.
+
+Start Q'Nial using the command 
+         nial -s +size 100000
+and
+         loaddefs "wsfull
+
+This will run a loop that will halt with a message about workspace full. 
+If there is sufficient space left it will ask whether to continue. Reply
+yes until no further variables are created. Then when you reply no the system
+will exit (if it hasn't already done so).
+
+A second test should be run with an expanding workspace. Start with just the
+command 
+	nial -s -size 100000
+and repeat the above. For a system with a large virtual memory, the
+size of the workspace can get quite large. You may wish to interrupt this
+using a Ctrl C interrupt after observing that expansion is occuring by
+the change in the fourth item of the status word. The size of the atom table
+(word six of status) will also grow.
+
+Fixed size ws test done:  ____________________________________
+
+Expanding ws test done:   ____________________________________
+
+
+HAND TESTING
+
+This section of the testing involves checking features of Q'Nial that are
+difficult or impossible to check under program control. Each section
+below addresses some area of the interpreter that is tested by the
+actions described.
+
+1. Full screen capabilities:
+
+Start Q'Nial with
+	nial
+
+For each of the following actions, check that the expected behaviour
+is observed and record that the test has been done.
+
+Action		Behaviour					Observed
+
+
+setprompt '--> '
+		The next prompt line begins with th  string
+                given as the argument.
+
+writescreen 'hello world'
+		The text "hello world" appears on the 
+		next line.
+
+writescreen (2 5 reshape 'helloworld')
+		The words "hello" and "world" appear on
+		the next two lines.
+
+writescreen ''	The next line is left blank. The prompt
+                appears one line later.
+
+writechars 'abc'
+		The next line has the text "abc" followed
+		by the prompt.
+
+writechars ''	The prompt appears on the next line.
+
+write tell 2 3;
+		The picture of the array generated by
+		the expression tell 2 3 is shown on the
+		next 5 lines.
+
+readscreen 'Name: '
+		The next line prompts with the text "Name: "
+		and the string typed after it to a <return>
+		is displayed on the following line.
+
+read 'formula:'
+		The next line prompts with the text "formula:"
+		and the result of the formula (such as 3 + 5)
+		typed at the prompt is displayed.
+
+readchar	The system awaits input on the next line. If
+		a regular key is pressed, the corresponding
+		character is displayed. If a function key or
+		special key is pressed a phrase is displayed
+		giving the Q'Nial name for the key. This behaviour
+		depends on the proper terminal kpf file being
+		found at system startup.
+
+
+setwidth 30	Sets the output width to 30 returning the default
+		size. Subsequent output to the screen and log
+		uses only  30 columns.
+
+
+
+2. Debugging capabilities
+
+The capabilities of the debugger to be tested by hand are:
+
+	break
+	callstack
+	resume
+	step
+	stepv
+	next
+	nextv
+
+Type:
+	nial -defs breaktest
+to load the breaktest operation.
+
+Use 
+	see "breaktest 
+to view the definition, which has a break in it.
+It also has a loop and a call to an inner function as well
+as a recursive call, which is triggered with 1 as the argument.
+
+You can use the operationwith the above debug commands to determine 
+that they are working correctly.
+
+
+3. session control
+
+Check that the following session capabilities work as described
+in the manual:
+
+	Bye		exits without saving.
+
+	Continue	exits after saving workspace.
+			Restarting nial loads the continue workspace
+			Leaving by Bye throws it away.
+
+	Clearws		clears the workspace, making a new one if no
+			stored clearws.nws is available.
+
+	Restart		restarts the system with the workspace
+			and definitions provided at the call.
+
+	Toplevel	Causes a jump to top level.
+
+	edit		invokes an external editor. Check that the
+			default one is used. Try setting the environment
+			variable EDITOR to change the one used.
+
+	host		test that host executes properly and is
+			also invoked with ! at the top level loop.
+			Check that a failed host command creates a fault
+			(On Unix systems).
+
+	erase		erases a variable but leaves the name in symbols 0
+			with the same role.
+
+	load		loads a workpace.
+
+	save		saves a workspace.
+
+	loaddefs	loads a definition file.
+			Check that such a file can contain loaddefs.
+			execute it from within a function, e.g.
+			fix is op fname{ edit (string fname link '.ndf');
+                              loaddefs fname; }
+
+	library		check library access to all levels of the
+			lib directories in nialroot directory.
+
+	latent		Check that that Latent is triggered on a load.
+
+	checkpoint	Check that Checkpoint is triggered on a save.
+
+	recover		Install a recover function and see that it is
+			executed on a toplevel or CtrlC interrupt.
+
+	setinterrupts 	Check that interrupts can be toggled with this
+			operation.
+
+	settrigger 	Check the the fault triggering mechanism can be
+			toggled with this operation.
+
+4. Information available under program control
+
+Check that the following system information is correct for
+the version being tested.
+
+	copyright
+	nialroot
+	separator
+	status
+	system
+	time
+	timestamp
+	version
+
+
+
+5. Evaluation
+
+The evaluation mechanism are tested extensively in the automated
+testing package. Here there just a few additional checks to make.
+
+	execute ''
+	eval parse scan ''
+	see <definition>
+
+
+6. Other operations
+
+Check that the following operations are working as expected.
+	seed		seed for random generator.
+	random		check uniform nature of generator
+	positions	check this by examining the corresponding
+			diagram.
+	set		check that all the options that can be set
+			are working correctly
+	setformat	check that the printf style real number
+			formatting is working.
+	setlogname	check that the log name is set properly
+
+7. Command line options
+
+	-s		supresses fault triggering
+	-size		sets initial workspace size, allows expansion
+	+size		sets the workspace size at a fixed value.
+	-q		starts Q'nial silently
+	-defs		file of definitions to be loaded
+	-b		uses ASCII instead of line drawing chars for
+			array diagrams on PCDOS and EXTDOS versions.
+	<wsname>	name of initial workspace.
+
+8. Other features
+
+Test the following capabilities.
+
+	]<var>		last value  (not in DEBUG version)
+
+	Ctrl C		jumps to top level. This is deferred by long
+			computations.
+
+	Ctrl D		ends the session at top level (Unix Version)
+
+	Ctrl Z		suspends the session (Unix version).
+
+     Ctrl Z, Retn   ends the session at top level (Windows Version)
+

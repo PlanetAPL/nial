@@ -462,6 +462,7 @@
 		E7A2F5B916C7598500215B90 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Nial/Nial-Prefix.pch";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -471,6 +472,7 @@
 		E7A2F5BA16C7598500215B90 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Nial/Nial-Prefix.pch";
 				PRODUCT_NAME = "$(TARGET_NAME)";
